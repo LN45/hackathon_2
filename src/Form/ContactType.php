@@ -3,10 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Contact;
+use App\Entity\Event;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class ContactType extends AbstractType
 {
@@ -18,8 +20,8 @@ class ContactType extends AbstractType
             ->add('events',EntityType::class,[
                 'class'=> Event::class,
                 'choice_label' => 'name',
-                'multiple' => true,
-            );
+                'multiple' => true
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
