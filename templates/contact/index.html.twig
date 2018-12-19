@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+{% extends 'base.html.twig' %}
 
-<title>Contact index</title>
+{% block title %}Contact index{% endblock %}
 
 {% block body %}
     <h1>Contact index</h1>
@@ -11,6 +11,7 @@
                 <th>Id</th>
                 <th>FirstName</th>
                 <th>CompanyName</th>
+
                 <th>actions</th>
             </tr>
         </thead>
@@ -28,6 +29,7 @@
         {% else %}
             <tr>
                 <td colspan="4">no records found</td>
+
             </tr>
         {% endfor %}
         </tbody>
