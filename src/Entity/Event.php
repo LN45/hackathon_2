@@ -24,7 +24,7 @@ class Event
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Contact", mappedBy="events")
+     * @ORM\OneToMany(targetEntity="App\Entity\Contact", mappedBy="event")
      */
     private $contacts;
 
@@ -62,7 +62,7 @@ class Event
     {
         if (!$this->contacts->contains($contact)) {
             $this->contacts[] = $contact;
-            $contact->addEvent($this);
+            $contact->setEvent($this);
         }
 
         return $this;
@@ -72,7 +72,10 @@ class Event
     {
         if ($this->contacts->contains($contact)) {
             $this->contacts->removeElement($contact);
-            $contact->removeEvent($this);
+            // set the owning side to null (unless already changed)
+            if ($contact->getEvent() === $this) {
+                $contact->setEvent(null);
+            }
         }
 
         return $this;

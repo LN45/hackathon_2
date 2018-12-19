@@ -9,7 +9,9 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>FirstName</th>
+                <th>CompanyName</th>
+
                 <th>actions</th>
             </tr>
         </thead>
@@ -17,7 +19,8 @@
         {% for contact in contacts %}
             <tr>
                 <td>{{ contact.id }}</td>
-                <td>{{ contact.name }}</td>
+                <td>{{ contact.firstName }}</td>
+                <td>{{ contact.companyName }}</td>
                 <td>
                     <a href="{{ path('contact_show', {'id': contact.id}) }}">show</a>
                     <a href="{{ path('contact_edit', {'id': contact.id}) }}">edit</a>
@@ -25,7 +28,8 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="4">no records found</td>
+
             </tr>
         {% endfor %}
         </tbody>

@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,57 +19,55 @@ class Contact
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $firstName;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Event", inversedBy="contacts")
+     * @ORM\Column(type="string", length=255)
      */
-    private $events;
+    private $companyName;
 
-    public function __construct()
-    {
-        $this->events = new ArrayCollection();
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="contacts", cascade={"persist"})
+     */
+    private $event;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->name;
+        return $this->firstName;
     }
 
-    public function setName(string $name): self
+    public function setFirstName(string $firstName): self
     {
-        $this->name = $name;
+        $this->firstName = $firstName;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Event[]
-     */
-    public function getEvents(): Collection
+    public function getCompanyName(): ?string
     {
-        return $this->events;
+        return $this->companyName;
     }
 
-    public function addEvent(Event $event): self
+    public function setCompanyName(string $companyName): self
     {
-        if (!$this->events->contains($event)) {
-            $this->events[] = $event;
-        }
+        $this->companyName = $companyName;
 
         return $this;
     }
 
-    public function removeEvent(Event $event): self
+    public function getEvent(): ?Event
     {
-        if ($this->events->contains($event)) {
-            $this->events->removeElement($event);
-        }
+        return $this->event;
+    }
+
+    public function setEvent(?Event $event): self
+    {
+        $this->event = $event;
 
         return $this;
     }

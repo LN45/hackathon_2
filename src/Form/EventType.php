@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Contact;
 use App\Entity\Event;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +15,12 @@ class EventType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('contacts')
+            ->add('contacts', EntityType::class, [
+                'class'=>Contact::class,
+                'choice_label'=>'firstName',
+                'multiple'=>true,
+
+            ])
         ;
     }
 
