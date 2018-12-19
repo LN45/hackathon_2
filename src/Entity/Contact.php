@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,19 +22,14 @@ class Contact
     private $firstName;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $companyName;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Event", mappedBy="contacts")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="contacts", cascade={"persist"})
      */
-    private $events;
-
-    public function __construct()
-    {
-        $this->events = new ArrayCollection();
-    }
+    private $event;
 
     public function getId(): ?int
     {
@@ -60,35 +53,21 @@ class Contact
         return $this->companyName;
     }
 
-    public function setCompanyName(?string $companyName): self
+    public function setCompanyName(string $companyName): self
     {
         $this->companyName = $companyName;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Event[]
-     */
-    public function getEvents(): Collection
+    public function getEvent(): ?Event
     {
-        return $this->events;
+        return $this->event;
     }
 
-    public function addEvent(Event $event): self
+    public function setEvent(?Event $event): self
     {
-        if (!$this->events->contains($event)) {
-            $this->events[] = $event;
-        }
-
-        return $this;
-    }
-
-    public function removeEvent(Event $event): self
-    {
-        if ($this->events->contains($event)) {
-            $this->events->removeElement($event);
-        }
+        $this->event = $event;
 
         return $this;
     }
