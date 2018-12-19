@@ -24,19 +24,13 @@ class Event
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Company", mappedBy="events")
+     * @ORM\OneToMany(targetEntity="App\Entity\Contact", mappedBy="event")
      */
-    private $companies;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Participant", inversedBy="events")
-     */
-    private $participants;
+    private $contacts;
 
     public function __construct()
     {
-        $this->companies = new ArrayCollection();
-        $this->participants = new ArrayCollection();
+        $this->contacts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -57,54 +51,31 @@ class Event
     }
 
     /**
-     * @return Collection|Company[]
+     * @return Collection|Contact[]
      */
-    public function getCompanies(): Collection
+    public function getContacts(): Collection
     {
-        return $this->companies;
+        return $this->contacts;
     }
 
-    public function addCompany(Company $company): self
+    public function addContact(Contact $contact): self
     {
-        if (!$this->companies->contains($company)) {
-            $this->companies[] = $company;
-            $company->addEvent($this);
+        if (!$this->contacts->contains($contact)) {
+            $this->contacts[] = $contact;
+            $contact->setEvent($this);
         }
 
         return $this;
     }
 
-    public function removeCompany(Company $company): self
+    public function removeContact(Contact $contact): self
     {
-        if ($this->companies->contains($company)) {
-            $this->companies->removeElement($company);
-            $company->removeEvent($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Participant[]
-     */
-    public function getParticipants(): Collection
-    {
-        return $this->participants;
-    }
-
-    public function addParticipant(Participant $participant): self
-    {
-        if (!$this->participants->contains($participant)) {
-            $this->participants[] = $participant;
-        }
-
-        return $this;
-    }
-
-    public function removeParticipant(Participant $participant): self
-    {
-        if ($this->participants->contains($participant)) {
-            $this->participants->removeElement($participant);
+        if ($this->contacts->contains($contact)) {
+            $this->contacts->removeElement($contact);
+            // set the owning side to null (unless already changed)
+            if ($contact->getEvent() === $this) {
+                $contact->setEvent(null);
+            }
         }
 
         return $this;

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<title>Contact</title>
+
+{% block body %}
+    <h1>Contact</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contact.id }}</td>
+            </tr>
+            <tr>
+                <th>FirstName</th>
+                <td>{{ contact.firstName }}</td>
+            </tr>
+            <tr>
+                <th>CompanyName</th>
+                <td>{{ contact.companyName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('contact_index') }}">back to list</a>
+
+    <a href="{{ path('contact_edit', {'id': contact.id}) }}">edit</a>
+
+    {{ include('contact/_delete_form.html.twig') }}
+{% endblock %}
