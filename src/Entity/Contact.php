@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ParticipantRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
  */
-class Participant
+class Contact
 {
     /**
      * @ORM\Id()
@@ -24,19 +24,13 @@ class Participant
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Event", mappedBy="participants")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Event", inversedBy="contacts")
      */
     private $events;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Company", inversedBy="participants")
-     */
-    private $companies;
 
     public function __construct()
     {
         $this->events = new ArrayCollection();
-        $this->companies = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -68,7 +62,6 @@ class Participant
     {
         if (!$this->events->contains($event)) {
             $this->events[] = $event;
-            $event->addParticipant($this);
         }
 
         return $this;
@@ -78,33 +71,6 @@ class Participant
     {
         if ($this->events->contains($event)) {
             $this->events->removeElement($event);
-            $event->removeParticipant($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Company[]
-     */
-    public function getCompanies(): Collection
-    {
-        return $this->companies;
-    }
-
-    public function addCompany(Company $company): self
-    {
-        if (!$this->companies->contains($company)) {
-            $this->companies[] = $company;
-        }
-
-        return $this;
-    }
-
-    public function removeCompany(Company $company): self
-    {
-        if ($this->companies->contains($company)) {
-            $this->companies->removeElement($company);
         }
 
         return $this;
