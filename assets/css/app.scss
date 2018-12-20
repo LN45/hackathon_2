@@ -2,9 +2,17 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/bootswatch/dist/lux/bootswatch";
 @import "banner.css";
+@import "dear.css";
 
-
+.bg-snow{
+    background-image: url("../images/snow.png");
+    background-size: cover;
+    min-height: 600px;
+}
 .red{
+    color: #ec3338 !important;
+}
+.bgred{
     color: #ec3338 !important;
 }
 textarea{
@@ -13,7 +21,7 @@ textarea{
 .green{
     color: #4BBF73;
 }
-main{
+.pTop{
     padding-top: 35px;
 
 }
@@ -27,6 +35,9 @@ h1 {
     text-align: center;
     padding-bottom: 5%;
     padding-top: 5%;
+}
+body{
+    outline: none !important;
 }
 //.event_list {
 //    table {
@@ -220,4 +231,43 @@ tbody{
 
 .title_detail_event {
     margin-left: 20%;
+}
+
+/*home*/
+.homeAdmin .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-height: 400px;
+    max-width: 400px;
+}
+
+.homeAdmin .card .img-fa {
+    min-width: 100%;
+    max-height: 150px;
+    min-height: 150px;
+    background-color: #ec3338;
+}
+
+.homeAdmin .card .img-fa .fa-comments,
+.homeAdmin .card .img-fa .far,
+.homeAdmin .card .img-fa .fas {
+    font-size: 5em;
+    padding-top: 50px;
+    color: white;
+}
+
+.homeAdmin .card .card-title {
+    min-height: 40px;
+    max-height: 40px;
+}
+
+.homeAdmin .card .card-text {
+    min-height: 110px;
+    max-height: 110px;
+}
+
+.homeAdmin .card .badgeAdmin {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 1em;
 }
