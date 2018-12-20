@@ -37,7 +37,6 @@ class Contact
     private $companyName;
 
     /**
-     * @ORM\Column(nullable=true)
      * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="contacts", cascade={"persist"})
      */
     private $event;
