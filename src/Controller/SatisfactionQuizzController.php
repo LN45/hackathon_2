@@ -51,7 +51,7 @@ class SatisfactionQuizzController extends AbstractController
         ]);
     }
     /**
-     * @Route("response/{event}/{contact}", name="satisfaction_quizz_response", methods={"GET","POST"})
+     * @Route("/response/{event}/{contact}", name="satisfaction_quizz_response", methods={"GET","POST"})
      */
     public function quizzResponse(Request $request, Event $event, Contact $contact): Response
     {
