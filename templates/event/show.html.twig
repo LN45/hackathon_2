@@ -29,21 +29,6 @@
             </table>
         </div>
     </div>
-    <button class="mx-auto button_new btn btn-outline-dark"><a href="{{ path('event_edit', {'id': event.id}) }}">Modifier l'évènement</a></button>
-
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ event.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ event.name }}</td>
-            </tr>
-        </tbody>
-    </table>
 
     <h4>Participants</h4>
 
@@ -69,8 +54,8 @@
     </table>
 
     <a href="{{ path('event_index') }}">back to list</a>
-
-    <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
+    
+   <button class="mx-auto button_new btn btn-outline-dark"><a href="{{ path('event_edit', {'id': event.id}) }}">Modifier l'évènement</a></button>
 
     <a href="{{ path('satisfaction_quizz_new', {'event': event.id}) }}">Créer un Formulaire</a>
 
@@ -79,4 +64,5 @@
 
 
     {{ include('event/_delete_form.html.twig') }}
+
 {% endblock %}
