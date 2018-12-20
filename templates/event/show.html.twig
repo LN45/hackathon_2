@@ -35,24 +35,28 @@
 
        <div class="row mt-5">
            <h4 class="mx-auto">Participants</h4>
-
+           
            <table class="table">
                <tbody>
-               <tr>
-                   <th>Prénom</th>
-                   <th>Nom</th>
-                   <th>Email</th>
-                   <th>Société</th>
-               </tr>
-               {% for contact in contacts %}
-                   <tr>
-                       <td>{{contact.firstName}}</td>
-                       <td>{{contact.lastName}}</td>
-                       <td>{{contact.email}}</td>
-                       <td>{{contact.companyName}}</td>
-                   </tr>
-               {% endfor %}
-               </tbody>
+                <tr>
+                    <th>Id</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Société</th>
+                    <th>Formulaire validé</th>
+                </tr>
+                {% for contact in contacts %}
+                <tr>
+                    <td>{{contact.id}}</td>
+                    <td>{{contact.firstName}}</td>
+                    <td>{{contact.lastName}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.company.name}}</td>
+                    <td>{% if contact.hasResponse %} oui {% else %} non {% endif %}</td>
+                </tr>
+            {% endfor %}
+              </tbody>
            </table>
        </div>
         <div class="row">
