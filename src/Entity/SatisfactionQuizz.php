@@ -5,9 +5,11 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SatisfactionQuizzRepository")
+ * @ORM\Table(name="satisfaction_quizz",uniqueConstraints={@UniqueConstraint(name="satisfactionquizz_unique", columns={"event_id", "email"})})
  */
 class SatisfactionQuizz
 {
