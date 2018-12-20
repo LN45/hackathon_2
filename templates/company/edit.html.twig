@@ -3,11 +3,17 @@
 {% block title %}Edit Company{% endblock %}
 
 {% block body %}
-    <h1>Edit Company</h1>
+    <div class="container">
+        <div class="row">
+            <a href="{{ path('company_index') }}"><i class="fas fa-chevron-circle-left fa-3x col-lg-2"></i></a>
+            <h1 class="text-center col-lg-10">Modifier une compagnie</h1>
+        </div>
+    </div>
 
-    {{ include('company/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('company_index') }}">back to list</a>
+    {{ include('company/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    {{ include('company/_delete_form.html.twig') }}
+
+
+    {#{{ include('company/_delete_form.html.twig') }}#}
 {% endblock %}
