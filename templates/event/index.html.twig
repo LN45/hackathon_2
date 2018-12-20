@@ -4,47 +4,44 @@
 
 {% block body %}
     <div class="container">
-        <div class="row event_list">
-            <h1 class="mx-auto">Liste des évènements</h1>
-
-            <table class="table table_event">
+        <div class="row">
+            <a href="{{ path('event_new') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i>  Ajouter un événement</a>
+            <div class="ml-5">
+                <h1 class=" text-center ml-5">Listes des évenements</h1>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <table class="table">
                 <thead>
                 <tr>
-                    <th>Nom évènement</th>
+                    <th>Nom</th>
                     <th>Date</th>
                     <th>Type</th>
                     <th>Organisateur</th>
                     <th>Description</th>
-                    <th>Action</th>
+                    <th class="text-right">actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for event in events %}
                     <tr>
                         <td>{{ event.name }}</td>
-                        <td class="justify-content-center">{{ event.date|date('d/m/Y') }}</td>
                         <td>{{ event.type }}</td>
                         <td>{{ event.organizer }}</td>
                         <td>{{ event.description }}</td>
-                        <td>
-                            <div class="row">
-                                <div class="col-6">
-                                    <a href="{{ path('event_show', {'id': event.id}) }}"><i class="far fa-eye"></i></a>
-                                </div>
-                                <div class="col-6">
-                                    <a href="{{ path('event_edit', {'id': event.id}) }}"><i class="fas fa-pen"></i></a>
-                                </div>
-                            </div>
+                        <td class="text-right">
+                            <a href="{{ path('event_show', {'id': event.id}) }}" class="text-right"><i class="far fa-eye"></i></a>
+                            <a href="{{ path('event_edit', {'id': event.id}) }}" class="text-right"><i class="fas fa-pen"></i></a>
                         </td>
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="3">no records found</td>
+                        <td colspan="3">Aucun évenement trouvé</td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
-            <button class="mx-auto button_new btn btn-outline-dark"><a class="button_link" href="{{ path('event_new') }}">Ajouter un évènement</a></button>
         </div>
     </div>
+
 {% endblock %}
