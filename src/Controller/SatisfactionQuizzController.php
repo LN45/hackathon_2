@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Entity\Event;
+use App\Entity\Gold;
 use App\Entity\SatisfactionQuizz;
 use App\Form\SatisfactionQuizzType;
 use App\Repository\SatisfactionQuizzRepository;
@@ -63,9 +64,11 @@ class SatisfactionQuizzController extends AbstractController
         if(!$contact->getHasResponse()) {
             if ($form->isSubmitted() && $form->isValid()) {
                 $entityManager = $this->getDoctrine()->getManager();
-                $satisfactionQuizz->setEvent ($event);
+                $satisfactionQuizz->setEvent($event);
                 $satisfactionQuizz->setEmail($contact->getEmail());
                 $contact->setHasResponse(true);
+                $gold = $this->getDoctrine()->getRepository(Gold::class)->findOneBy(['email' => $contact->getEmail()]);
+                $gold->addQuantity(20);
                 $entityManager->persist($satisfactionQuizz);
                 $entityManager->flush();
     

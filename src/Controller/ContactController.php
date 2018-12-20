@@ -30,7 +30,6 @@ class ContactController extends AbstractController
     public function new(Request $request): Response
     {
         $contact = new Contact();
-        $gold = new Gold();
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
@@ -38,9 +37,17 @@ class ContactController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($contact);
             
-            $gold->setEmail($contact->getEmail());
-            $gold->setQuantity(20);
-            $entityManager->persist($gold);
+            $goldRep = $this->getDoctrine()->getRepository(Gold::class);
+
+            if(null == $goldRep->findOneBy(['email' => $contact->getEmail()])) {
+                $gold = new Gold();
+                $gold->setEmail($contact->getEmail());
+                $gold->setQuantity(20);
+                $entityManager->persist($gold);
+            } else {
+                $gold = $goldRep->findOneBy(['email' => $contact->getEmail()]);
+                $gold->addQuantity(10);
+            }
 
             $entityManager->flush();
             

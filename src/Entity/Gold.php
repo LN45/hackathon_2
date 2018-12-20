@@ -54,4 +54,18 @@ class Gold
 
         return $this;
     }
+
+    public function addQuantity(int $quantity): self
+    {
+        $this->quantity += $quantity;
+
+        return $this;
+    }
+
+    public function removeQuantity(int $quantity): self
+    {
+        $this->quantity -= $quantity;
+
+        return $this;
+    }
 }
