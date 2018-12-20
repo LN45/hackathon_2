@@ -34,12 +34,6 @@ class SatisfactionQuizz
     private $contactNumber;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Event", inversedBy="satisfactionQuizz", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $event;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Contact", mappedBy="satisfactionQuizz")
      */
     private $contacts;
@@ -49,9 +43,15 @@ class SatisfactionQuizz
      */
     private $email;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="satisfactionQuizzs")
+     */
+    private $event;
+
     public function __construct()
     {
         $this->contacts = new ArrayCollection();
+        $this->events = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -95,18 +95,6 @@ class SatisfactionQuizz
         return $this;
     }
 
-    public function getEvent(): ?Event
-    {
-        return $this->event;
-    }
-
-    public function setEvent(Event $event): self
-    {
-        $this->event = $event;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Contact[]
      */
@@ -146,6 +134,18 @@ class SatisfactionQuizz
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getEvent(): ?Event
+    {
+        return $this->event;
+    }
+
+    public function setEvent(?Event $event): self
+    {
+        $this->event = $event;
 
         return $this;
     }
