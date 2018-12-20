@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
+use App\Entity\Gold;
 use App\Form\ContactType;
 use App\Repository\ContactRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,14 +30,20 @@ class ContactController extends AbstractController
     public function new(Request $request): Response
     {
         $contact = new Contact();
+        $gold = new Gold();
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($contact);
-            $entityManager->flush();
+            
+            $gold->setEmail($contact->getEmail());
+            $gold->setQuantity(20);
+            $entityManager->persist($gold);
 
+            $entityManager->flush();
+            
             return $this->redirectToRoute('contact_index');
         }
 
@@ -51,7 +58,9 @@ class ContactController extends AbstractController
      */
     public function show(Contact $contact): Response
     {
-        return $this->render('contact/show.html.twig', ['contact' => $contact]);
+        $gold = $this->getDoctrine()->getRepository(Gold::class)->findOneBy(['email' => $contact->getEmail()]);
+
+        return $this->render('contact/show.html.twig', ['contact' => $contact, 'gold' => $gold]);
     }
 
     /**
