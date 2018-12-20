@@ -1,0 +1,299 @@
+#outer {
+    position: relative;
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    z-index: 999;
+}
+.mr110{
+    margin-right: 15px !important;
+}
+.m-t70{
+    margin-top: 70px;
+}
+
+#deerhead {
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    width: 30%;
+    height: 40%;
+    background: rgb(186, 110, 73);
+    -webkit-clip-path: polygon(10% 0%, 90% 0%, 100% 30%, 90% 80%, 70% 100%, 30% 100%, 10% 80%, 0% 30%);
+    clip-path: polygon(10% 0%, 90% 0%, 100% 30%, 90% 80%, 70% 100%, 30% 100%, 10% 80%, 0% 30%);
+    border-top-left-radius: 30%;
+    border-top-right-radius: 30%;
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    z-index: 10;
+}
+
+#deernose {
+    position: absolute;
+    top: 65.5%;
+    left: 38%;
+    width: 24%;
+    height: 15%;
+    background: rgb(186, 110, 73);
+    border-radius: 50%;
+}
+
+#lefthorn {
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    width: 5%;
+    height: 25%;
+    background: rgb(237, 210, 157);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    -webkit-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+}
+#lefthorn::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 85%;
+    width: 95%;
+    height: 60%;
+    background: rgb(237, 210, 157);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    -webkit-transform: rotate(40deg);
+    -ms-transform: rotate(40deg);
+    transform: rotate(40deg);
+}
+#lefthorn::after {
+    content: "";
+    position: absolute;
+    top: 8%;
+    left: -65%;
+    width: 95%;
+    height: 60%;
+    background: rgb(237, 210, 157);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    -webkit-transform: rotate(-40deg);
+    -ms-transform: rotate(-40deg);
+    transform: rotate(-40deg);
+}
+
+#righthorn {
+    position: absolute;
+    top: 20%;
+    left: 60%;
+    width: 5%;
+    height: 25%;
+    background: rgb(237, 210, 157);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    -webkit-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    transform: rotate(20deg);
+}
+#righthorn::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: -76%;
+    width: 95%;
+    height: 60%;
+    background: rgb(237, 210, 157);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    -webkit-transform: rotate(-40deg);
+    -ms-transform: rotate(-40deg);
+    transform: rotate(-40deg);
+}
+#righthorn::after {
+    content: "";
+    position: absolute;
+    top: 8%;
+    left: 80%;
+    width: 95%;
+    height: 60%;
+    background: rgb(237, 210, 157);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    -webkit-transform: rotate(40deg);
+    -ms-transform: rotate(40deg);
+    transform: rotate(40deg);
+}
+
+#leftear {
+    position: absolute;
+    top: 34%;
+    left: 17%;
+    width: 20%;
+    height: 20%;
+    background:rgb(186, 110, 73);
+    border-radius: 100px 20px;
+    -webkit-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    transform: rotate(60deg);
+}
+#leftear::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 70%; height: 70%;
+    background: rgb(235, 224, 203);
+    border-radius: 100px 20px;
+}
+
+#rightear {
+    position: absolute;
+    top: 34%;
+    left: 63%;
+    width: 20%;
+    height: 20%;
+    background: rgb(186, 110, 73);
+    border-radius: 100px 20px;
+    -webkit-transform: rotate(-150deg);
+    -ms-transform: rotate(-150deg);
+    transform: rotate(-150deg);
+}
+#rightear::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 70%; height: 70%;
+    background: rgb(235, 224, 203);
+    border-radius: 100px 20px;
+}
+
+#lefteye {
+    position: absolute;
+    top: 52%;
+    left: 34%;
+    width: 15%;
+    height: 15%;
+    background: rgb(3, 3, 3);
+    border-radius: 50%;
+    z-index: 15;
+    animation: eyeBlink 2s infinite;
+}
+#lefteye::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 20%;
+    height: 20%;
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+}
+
+#righteye {
+    position: absolute;
+    top: 52%;
+    left: 51%;
+    width: 15%;
+    height: 15%;
+    background: rgb(3, 3, 3);
+    border-radius: 50%;
+    z-index: 15;
+    -webkit-animation: eyeBlink 10s infinite;
+    animation: eyeBlink 2s infinite;
+}
+#righteye::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 20%;
+    height: 20%;
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+}
+
+#nose {
+    position: absolute;
+    top: 70%;
+    left: 43%;
+    width: 14%;
+    height: 10%;
+    background: rgb(3, 3, 3);
+    border-radius: 50%;
+    z-index: 30;
+    cursor: pointer;
+}
+#nose::before {
+    content: "";
+    position: absolute;
+    top: 40%;
+    left: 15%;
+    width: 10%;
+    height: 25%;
+    /*background: rgb(135, 135, 135);*/
+    /*box-shadow: 35px 0 0 rgb(135, 135, 135);*/
+    border-radius: 50%;
+}
+
+
+@keyframes noseColor {
+    0 {
+        background: rgb(3, 3, 3);
+    }
+    100% {
+        background: #ec3338;
+    }
+}
+.noseColor {
+    animation-duration: 5s;
+    animation-name: noseColor;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes eyeBlink {
+    0 {
+        top: 52%;
+        height: 6%;
+    }
+    90% {
+        top: 52%;
+        height: 6%;
+    }
+    95% {
+        top: 54%;
+        height: 1%;
+    }
+    100% {
+        top: 52%;
+        height: 6%;
+    }
+}
+
+@keyframes eyeBlink {
+    0 {
+        top: 52%;
+        height: 6%;
+    }
+    90% {
+        top: 52%;
+        height: 13%;
+    }
+    95% {
+        top: 54%;
+        height: 7%;
+    }
+    100% {
+        top: 56%;
+        height: 1%;
+    }
+}
+
+.rond-bleu{
+
+    box-shadow: 0 3em 2.5em -2.5em rgba(53, 64, 73, 0.6), 0 0 1em -0.35em rgba(255, 255, 255, 0.2), 0 -1em 1.1em 0 rgba(255, 255, 255, 0.5) inset, 0 0 2.5em 0 rgba(0, 0, 0, 0.4) inset;
+    background: radial-gradient(circle at 33% -25%, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.07) 50%), radial-gradient(circle at 50% 135%, rgba(0, 0, 0, 0.23) 43%, rgba(255, 255, 255, 0)), radial-gradient(circle at 50% -35%, rgba(255, 255, 255, 0.8) 45%, rgba(255, 255, 255, 0)), radial-gradient(circle at 50% 0, #ffffff, #d5d5d5);
+    background-size: 150%, 100%, 100%, 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    opacity: 0.99;
+    z-index: 991;
+}
