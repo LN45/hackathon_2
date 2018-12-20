@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Contact;
 
 /**
  * @Route("/event")
@@ -51,7 +52,10 @@ class EventController extends AbstractController
      */
     public function show(Event $event): Response
     {
-        return $this->render('event/show.html.twig', ['event' => $event]);
+
+        $contacts = $this->getDoctrine()->getRepository(Contact::class)->findBy(['event'=>$event]);
+
+        return $this->render('event/show.html.twig', ['event' => $event, 'contacts' => $contacts]);
     }
 
     /**
@@ -65,11 +69,16 @@ class EventController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $contacts = $this->getDoctrine()->getRepository(Contact::class)->findBy(['event'=>$event]);
+
+
+
             return $this->redirectToRoute('event_index', ['id' => $event->getId()]);
         }
 
         return $this->render('event/edit.html.twig', [
             'event' => $event,
+            'contacts' => $event->getContacts(),
             'form' => $form->createView(),
         ]);
     }
