@@ -7,8 +7,12 @@
 .red{
     color: #ec3338 !important;
 }
-
-
+.green{
+    color: #4BBF73;
+}
+main{
+    padding-top: 35px;
+}
 
 /*upload image*/
 
@@ -138,4 +142,18 @@
     0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
     50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
     100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+
+thead{
+    border: 1px solid #ec272c;
+    tr{
+        background-color: #ec272c;
+        color: black;
+    }
+}
+tbody{
+    border: 1px solid lightgray;
+    tr{
+        color: gray;
+    }
 }
