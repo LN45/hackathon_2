@@ -7,7 +7,9 @@
 .red{
     color: #ec3338 !important;
 }
-
+textarea{
+    min-height: 150px;
+}
 .green{
     color: #4BBF73;
 }
@@ -57,7 +59,8 @@ input{
 
 .fa-chevron-circle-left {
     margin-left: 10%;
-    color : red;
+    color :  #ec3338;
+    padding-top: 50px;
 }
 
 .form_event {
