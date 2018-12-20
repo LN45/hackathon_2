@@ -3,37 +3,45 @@
 {% block title %}Contact index{% endblock %}
 
 {% block body %}
-    <h1>Contact index</h1>
+    <div class="container">
+        <div class="row">
+            <a href="{{ path('contact_new') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i>Ajouter un contact</a>
+            <div class="ml-5">
+                <h1>Liste des contacts</h1>
+            </div>
+        </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>FirstName</th>
-                <th>CompanyName</th>
+        <div class="row mt-5">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>FirstName</th>
+                    <th>CompanyName</th>
 
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for contact in contacts %}
-            <tr>
-                <td>{{ contact.id }}</td>
-                <td>{{ contact.firstName }}</td>
-                <td>{{ contact.companyName }}</td>
-                <td>
-                    <a href="{{ path('contact_show', {'id': contact.id}) }}">show</a>
-                    <a href="{{ path('contact_edit', {'id': contact.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
+                    <th class="text-right">actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for contact in contacts %}
+                    <tr>
+                        <td>{{ contact.id }}</td>
+                        <td>{{ contact.firstName }}</td>
+                        <td>{{ contact.companyName }}</td>
+                        <td class="text-right">
+                            <a href="{{ path('contact_show', {'id': contact.id}) }}"><i class="far fa-eye"></i></a>
+                            <a href="{{ path('contact_edit', {'id': contact.id}) }}"><i class="fas fa-pen"></i></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">Aucun contact trouvé</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    <button class="mx-auto button_new btn btn-outline-dark"><a href="{{ path('contact_new') }}">Create new</a></button>
 
 {% endblock %}
