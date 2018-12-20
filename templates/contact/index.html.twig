@@ -27,7 +27,7 @@
                     <tr>
                         <td>{{ contact.id }}</td>
                         <td>{{ contact.firstName }}</td>
-                        <td>{{ contact.companyName }}</td>
+                        <td>{{ contact.company.name }}</td>
                         <td class="text-right">
                             <a href="{{ path('contact_show', {'id': contact.id}) }}"><i class="far fa-eye"></i></a>
                             <a href="{{ path('contact_edit', {'id': contact.id}) }}"><i class="fas fa-pen"></i></a>

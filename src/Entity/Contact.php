@@ -32,11 +32,6 @@ class Contact
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $companyName;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="contacts", cascade={"persist"})
      */
     private $event;
@@ -52,6 +47,11 @@ class Contact
      * @ORM\ManyToOne(targetEntity="App\Entity\Company", inversedBy="contacts")
      */
     private $company;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $hasResponse = false;
 
     public function getId(): ?int
     {
@@ -138,6 +138,18 @@ class Contact
     public function setCompany(?Company $company): self
     {
         $this->company = $company;
+
+        return $this;
+    }
+
+    public function getHasResponse(): ?bool
+    {
+        return $this->hasResponse;
+    }
+
+    public function setHasResponse(bool $hasResponse): self
+    {
+        $this->hasResponse = $hasResponse;
 
         return $this;
     }

@@ -19,3 +19,6 @@ function previewUpload(input, f, maxSize) {
         $('#errorFile').html(" ");
     }
 }
+// console.log($('#event_pictureFile_file').next());
+
+$('#event_pictureFile_file').next().addClass("d-none");

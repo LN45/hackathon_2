@@ -4,11 +4,16 @@
 {% block title %}Edit Event{% endblock %}
 
 {% block body %}
-    <h1>Modifier un évènement</h1>
-    <a href="{{ path('event_index') }}"><i class="fas fa-chevron-circle-left fa-3x"></i></a>
 
-    {{ include('event/_form.html.twig', {'button_label': 'Modifier'}) }}
+    <div class="container">
+        <div class="row">
+            <a href="{{ path('event_index') }}"><i class="fas fa-chevron-circle-left fa-3x col-lg-2 mr-5"></i></a>
+            <h1 class="ml-5">Modifier un évènement</h1>
+        </div>
+    </div>
+    {{ include('event/_formEdit.html.twig', {'button_label': 'Mettre à jour'}) }}
+    {{ include('event/_delete_form.html.twig') }}
 
 
-    {#{{ include('event/_delete_form.html.twig') }}#}
+
 {% endblock %}

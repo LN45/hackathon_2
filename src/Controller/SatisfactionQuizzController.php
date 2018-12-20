@@ -60,13 +60,26 @@ class SatisfactionQuizzController extends AbstractController
         $form = $this->createForm(SatisfactionQuizzType::class, $satisfactionQuizz);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $satisfactionQuizz->setEvent ($event);
-            $satisfactionQuizz->setEmail($contact->getEmail ());
-            $entityManager->persist($satisfactionQuizz);
-            $entityManager->flush();
-
+        if(!$contact->getHasResponse()) {
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $satisfactionQuizz->setEvent ($event);
+                $satisfactionQuizz->setEmail($contact->getEmail());
+                $contact->setHasResponse(true);
+                $entityManager->persist($satisfactionQuizz);
+                $entityManager->flush();
+    
+                $this->addFlash(
+                    'success',
+                    'Formulaire validé !'
+                );
+                return $this->redirectToRoute('event_index');
+            }
+        } else {
+            $this->addFlash(
+                'danger',
+                'Formulaire déja rempli !'
+            );
             return $this->redirectToRoute('event_index');
         }
 
