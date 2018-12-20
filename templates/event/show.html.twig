@@ -4,9 +4,13 @@
 
 {% block body %}
     <div class="container">
-    <h1>Détail de l'évènement</h1>
-    <a href="{{ path('event_index') }}"><i class="fas fa-chevron-circle-left fa-3x"></i></a>
         <div class="row">
+            <a href="{{ path('event_index') }}"><i class="fas fa-chevron-circle-left fa-3x"></i></a>
+                <h1 class="text-center title_detail_event">Détail de l'évènement</h1>
+        </div>
+
+
+        <div class="row mt-5">
             <table class="table">
                 <tbody>
                 <tr>
@@ -28,41 +32,47 @@
                 </tbody>
             </table>
         </div>
+
+       <div class="row mt-5">
+           <h4 class="mx-auto">Participants</h4>
+
+           <table class="table">
+               <tbody>
+               <tr>
+                   <th>Prénom</th>
+                   <th>Nom</th>
+                   <th>Email</th>
+                   <th>Société</th>
+               </tr>
+               {% for contact in contacts %}
+                   <tr>
+                       <td>{{contact.firstName}}</td>
+                       <td>{{contact.lastName}}</td>
+                       <td>{{contact.email}}</td>
+                       <td>{{contact.companyName}}</td>
+                   </tr>
+               {% endfor %}
+               </tbody>
+           </table>
+       </div>
+        <div class="row">
+            <div class="col-4">
+                <a class="btn btn-primary ml-5" href="{{ path('event_edit', {'id': event.id}) }}">Modifier l'évènement</a>
+            </div>
+            <div class="col-4">
+                <a class="btn btn-primary ml-5" href="{{ path('satisfaction_quizz_new', {'event': event.id}) }}">Créer un Formulaire</a>
+            </div>
+            <div class="col-4">
+                {% include "event/_mail.html.twig" %}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+
+                {{ include('event/_delete_form.html.twig') }}
+
+        </div>
     </div>
 
-    <h4>Participants</h4>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Email</th>
-                <th>Société</th>
-            </tr>
-            {% for contact in contacts %}
-            <tr>
-                <td>{{contact.id}}</td>
-                <td>{{contact.firstName}}</td>
-                <td>{{contact.lastName}}</td>
-                <td>{{contact.email}}</td>
-                <td>{{contact.companyName}}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('event_index') }}">back to list</a>
-    
-   <button class="mx-auto button_new btn btn-outline-dark"><a href="{{ path('event_edit', {'id': event.id}) }}">Modifier l'évènement</a></button>
-
-    <a href="{{ path('satisfaction_quizz_new', {'event': event.id}) }}">Créer un Formulaire</a>
-
-
-    {% include "event/_mail.html.twig" %}
-
-
-    {{ include('event/_delete_form.html.twig') }}
 
 {% endblock %}
