@@ -20,6 +20,7 @@ class EventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+
             ->add('date', DateType::class, [
                 'widget' => 'single_text',
                 'attr' => array('class' => 'color-input size-input'),
@@ -36,6 +37,7 @@ class EventType extends AbstractType
                 'attr' => array('type' => 'text', 'class' => 'color-input size-input'),
                 'label' => 'Description',
             ])
+
             ->add('name', TextType::class, [
             'attr' => array('type' => 'text', 'class' => 'color-input size-input'),
             'label' => 'Nom',

@@ -71,9 +71,15 @@ class Event
      */
     private $type;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\SatisfactionQuizz", mappedBy="event")
+     */
+    private $satisfactionQuizzs;
+
     public function __construct()
     {
         $this->contacts = new ArrayCollection();
+        $this->satisfactionQuizzs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -123,7 +129,6 @@ class Event
 
         return $this;
     }
-
 
     public function getDate(): ?\DateTimeInterface
     {
@@ -199,5 +204,36 @@ class Event
     public function getPictureFile()
     {
         return $this->pictureFile;
+    }
+
+    /**
+     * @return Collection|SatisfactionQuizz[]
+     */
+    public function getSatisfactionQuizzs(): Collection
+    {
+        return $this->satisfactionQuizzs;
+    }
+
+    public function addSatisfactionQuizz(SatisfactionQuizz $satisfactionQuizz): self
+    {
+        if (!$this->satisfactionQuizzs->contains($satisfactionQuizz)) {
+            $this->satisfactionQuizzs[] = $satisfactionQuizz;
+            $satisfactionQuizz->setEvent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSatisfactionQuizz(SatisfactionQuizz $satisfactionQuizz): self
+    {
+        if ($this->satisfactionQuizzs->contains($satisfactionQuizz)) {
+            $this->satisfactionQuizzs->removeElement($satisfactionQuizz);
+            // set the owning side to null (unless already changed)
+            if ($satisfactionQuizz->getEvent() === $this) {
+                $satisfactionQuizz->setEvent(null);
+            }
+        }
+
+        return $this;
     }
 }
