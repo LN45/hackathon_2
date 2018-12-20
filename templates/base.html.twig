@@ -12,11 +12,11 @@
         {% include 'navbar.html.twig' %}
     {% include 'banner.html.twig' %}
     {% endblock %}
-
     <main>
         {% block body %}
         {% endblock %}
     </main>
+
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
