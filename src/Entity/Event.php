@@ -28,6 +28,11 @@ class Event
      */
     private $contacts;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\SatisfactionQuizz", mappedBy="event", cascade={"persist", "remove"})
+     */
+    private $satisfactionQuizz;
+
     public function __construct()
     {
         $this->contacts = new ArrayCollection();
@@ -76,6 +81,23 @@ class Event
             if ($contact->getEvent() === $this) {
                 $contact->setEvent(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getSatisfactionQuizz(): ?SatisfactionQuizz
+    {
+        return $this->satisfactionQuizz;
+    }
+
+    public function setSatisfactionQuizz(SatisfactionQuizz $satisfactionQuizz): self
+    {
+        $this->satisfactionQuizz = $satisfactionQuizz;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $satisfactionQuizz->getEvent()) {
+            $satisfactionQuizz->setEvent($this);
         }
 
         return $this;
