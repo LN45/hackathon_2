@@ -21,22 +21,25 @@ class MailController extends AbstractController
 
         foreach($contacts as $contact) {
            
-            $message = (new \Swift_Message('Hello ' . $contact->getFirstName()))
-            ->setFrom('hackaton2.lcc@gmail.com')
-            ->setTo($contact->getEmail())
-            ->setBody(
-                $this->renderView(
-                    // templates/emails/registration.html.twig
-                    'mail/index.html.twig',
-                    array('contact' => $contact, 'event' => $event)
-                ),
-                'text/html'
-            )
-        ;
+            if(!$contact->getHasResponse()) {
+
+                $message = (new \Swift_Message('Hello ' . $contact->getFirstName()))
+                ->setFrom('hackaton2.lcc@gmail.com')
+                ->setTo($contact->getEmail())
+                ->setBody(
+                    $this->renderView(
+                        // templates/emails/registration.html.twig
+                        'mail/index.html.twig',
+                        array('contact' => $contact, 'event' => $event)
+                    ),
+                    'text/html'
+                )
+            ;
+            $mailer->send($message);
+            }
         
     
     
-    $mailer->send($message);
 
         }
 

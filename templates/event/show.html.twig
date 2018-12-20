@@ -32,7 +32,7 @@
 
     <h4>Participants</h4>
 
-    <table class="table">
+    <table class="table text-center">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -40,6 +40,7 @@
                 <th>Nom</th>
                 <th>Email</th>
                 <th>Société</th>
+                <th>Formulaire validé</th>
             </tr>
             {% for contact in contacts %}
             <tr>
@@ -47,7 +48,8 @@
                 <td>{{contact.firstName}}</td>
                 <td>{{contact.lastName}}</td>
                 <td>{{contact.email}}</td>
-                <td>{{contact.companyName}}</td>
+                <td>{{contact.company.name}}</td>
+                <td>{% if contact.hasResponse %} oui {% else %} non {% endif %}</td>
             </tr>
             {% endfor %}
         </tbody>
