@@ -8,6 +8,8 @@
 
     {{ include('event/_form.html.twig', {'button_label': 'Update'}) }}
 
+    {{ dump(event) }}
+    <a href="{{ path('mail', {'name': event.name, "email" : "milonte@gmail.com" }) }}">send mail</a>
     <a href="{{ path('event_index') }}">back to list</a>
 
     {{ include('event/_delete_form.html.twig') }}
