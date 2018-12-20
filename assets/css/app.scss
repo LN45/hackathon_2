@@ -7,7 +7,9 @@
 .red{
     color: #ec3338 !important;
 }
-
+textarea{
+    min-height: 150px;
+}
 .green{
     color: #4BBF73;
 }
@@ -26,25 +28,25 @@ h1 {
     padding-bottom: 5%;
     padding-top: 5%;
 }
-.event_list {
-    table {
-        th {
-            font-weight: bold;
-            color : black;
-        }
-    }
-}
+//.event_list {
+//    table {
+//        th {
+//            font-weight: bold;
+//            color : black;
+//        }
+//    }
+//}
 
-.button_new {
-    border-radius: 0.5em;
-    color : #462DF7;
-    a {
-        text-decoration: none;
-        &:hover{
-            color : white;
-        }
-    }
-}
+//.button_new {
+//    border-radius: 0.5em;
+//    color : #462DF7;
+//    a {
+//        text-decoration: none;
+//        &:hover{
+//            color : white;
+//        }
+//    }
+//}
 label{
     font-size: 1.2em;
     padding-left : 10%;
@@ -57,7 +59,8 @@ input{
 
 .fa-chevron-circle-left {
     margin-left: 10%;
-    color : red;
+    color :  #ec3338;
+    padding-top: 50px;
 }
 
 .form_event {
@@ -213,4 +216,8 @@ tbody{
     width: 50px;
     height: 50px;
     object-fit: contain;
+}
+
+.title_detail_event {
+    margin-left: 20%;
 }
