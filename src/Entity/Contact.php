@@ -41,6 +41,18 @@ class Contact
      */
     private $event;
 
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\SatisfactionQuizz", inversedBy="contacts")
+     */
+    private $satisfactionQuizz;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Company", inversedBy="contacts")
+     */
+    private $company;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +114,30 @@ class Contact
     public function setEvent(?Event $event): self
     {
         $this->event = $event;
+
+        return $this;
+    }
+
+    public function getSatisfactionQuizz(): ?SatisfactionQuizz
+    {
+        return $this->satisfactionQuizz;
+    }
+
+    public function setSatisfactionQuizz(?SatisfactionQuizz $satisfactionQuizz): self
+    {
+        $this->satisfactionQuizz = $satisfactionQuizz;
+
+        return $this;
+    }
+
+    public function getCompany(): ?Company
+    {
+        return $this->company;
+    }
+
+    public function setCompany(?Company $company): self
+    {
+        $this->company = $company;
 
         return $this;
     }

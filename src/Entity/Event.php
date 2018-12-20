@@ -51,6 +51,31 @@ class Event
      */
     private $contacts;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\SatisfactionQuizz", mappedBy="event", cascade={"persist", "remove"})
+     */
+    private $satisfactionQuizz;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $organizer;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $type;
+
     public function __construct()
     {
         $this->contacts = new ArrayCollection();
@@ -103,6 +128,47 @@ class Event
 
         return $this;
     }
+
+    public function getSatisfactionQuizz(): ?SatisfactionQuizz
+    {
+        return $this->satisfactionQuizz;
+    }
+
+    public function setSatisfactionQuizz(SatisfactionQuizz $satisfactionQuizz): self
+    {
+        $this->satisfactionQuizz = $satisfactionQuizz;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $satisfactionQuizz->getEvent()) {
+            $satisfactionQuizz->setEvent($this);
+        }
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getOrganizer(): ?string
+    {
+        return $this->organizer;
+    }
+
+    public function setOrganizer(?string $organizer): self
+    {
+        $this->organizer = $organizer;
+        return $this;
+    }
+  
     public function getPicture(): ?string
     {
         return $this->picture;
@@ -111,10 +177,33 @@ class Event
     public function setPicture(string $picture): self
     {
         $this->picture = $picture;
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
 
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+  
     public function setPictureFile(File $picture = null)
     {
         $this->pictureFile = $picture;
