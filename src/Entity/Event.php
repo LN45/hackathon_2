@@ -52,6 +52,11 @@ class Event
     private $contacts;
 
     /**
+     * @ORM\OneToOne(targetEntity="App\Entity\SatisfactionQuizz", mappedBy="event", cascade={"persist", "remove"})
+     */
+    private $satisfactionQuizz;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $date;
@@ -124,6 +129,22 @@ class Event
         return $this;
     }
 
+    public function getSatisfactionQuizz(): ?SatisfactionQuizz
+    {
+        return $this->satisfactionQuizz;
+    }
+
+    public function setSatisfactionQuizz(SatisfactionQuizz $satisfactionQuizz): self
+    {
+        $this->satisfactionQuizz = $satisfactionQuizz;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $satisfactionQuizz->getEvent()) {
+            $satisfactionQuizz->setEvent($this);
+        }
+
+        return $this;
+    }
 
     public function getDate(): ?\DateTimeInterface
     {
