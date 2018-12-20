@@ -63,7 +63,8 @@ class SatisfactionQuizzController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $satisfactionQuizz->setEvent ($event);
-            $satisfactionQuizz->setEmail($contact->getEmail ());
+            $satisfactionQuizz->setEmail($contact->getEmail());
+            $contact->setHasResponse(true);
             $entityManager->persist($satisfactionQuizz);
             $entityManager->flush();
 
