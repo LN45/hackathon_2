@@ -3,7 +3,7 @@
 {% block title %}Company index{% endblock %}
 
 {% block body %}
-    <h1>Company index</h1>
+    <h1>Liste des compagnies</h1>
 
     <table class="table">
         <thead>
@@ -23,8 +23,8 @@
                 <td>{{ company.type }}</td>
                 <td>{{ company.partenaire ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('company_show', {'id': company.id}) }}">show</a>
-                    <a href="{{ path('company_edit', {'id': company.id}) }}">edit</a>
+                    <a href="{{ path('company_show', {'id': company.id}) }}"><i class="far fa-eye"></i></a>
+                    <a href="{{ path('company_edit', {'id': company.id}) }}"><i class="fas fa-pen"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -34,6 +34,6 @@
         {% endfor %}
         </tbody>
     </table>
+    <button class="mx-auto button_new btn btn-outline-dark"><a href="{{ path('company_new') }}">Ajouter une compagnie</a></button>
 
-    <a href="{{ path('company_new') }}">Create new</a>
 {% endblock %}
