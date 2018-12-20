@@ -15,6 +15,10 @@
                 <thead>
                 <tr>
                     <th>Nom</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Organisateur</th>
+                    <th>Description</th>
                     <th class="text-right">actions</th>
                 </tr>
                 </thead>
@@ -22,6 +26,9 @@
                 {% for event in events %}
                     <tr>
                         <td>{{ event.name }}</td>
+                        <td>{{ event.type }}</td>
+                        <td>{{ event.organizer }}</td>
+                        <td>{{ event.description }}</td>
                         <td class="text-right">
                             <a href="{{ path('event_show', {'id': event.id}) }}" class="text-right"><i class="far fa-eye"></i></a>
                             <a href="{{ path('event_edit', {'id': event.id}) }}" class="text-right"><i class="fas fa-pen"></i></a>
@@ -36,6 +43,5 @@
             </table>
         </div>
     </div>
-
 
 {% endblock %}
