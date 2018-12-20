@@ -1,4 +1,74 @@
+
+
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="form-group">
+            <label class="control-label">{{ form_label(form.name) }}</label>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text prep-color"><i class="fas fa-user-circle"></i></span>
+                    </div>
+                    {{ form_widget(form.name) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="form-group">
+            <label class="control-label">{{ form_label(form.type) }}</label>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text prep-color"><i class="fas fa-user-circle"></i></span>
+                    </div>
+                    {{ form_widget(form.type) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {#<div class="row justify-content-center">#}
+        {#<div class="form-group">#}
+            {#<div class="custom-control custom-radio">#}
+            {#<label class="control-label">{{ form_label(form.type) }}</label>#}
+            {#<div class="form-group">#}
+                {#<div class="input-group mb-3">#}
+                    {#<div class="input-group-prepend">#}
+                        {#<span class="input-group-text prep-color"><i class="fas fa-cogs"></i></span>#}
+                    {#</div>#}
+                    {#{{ form_widget(form.type) }}#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+    {#<div class="row justify-content-center">#}
+        {#<div class="form-group">#}
+            {#<div class="custom-control custom-radio">#}
+                {#{{ form_widget(form.type) }}#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+    <div class="row justify-content-center">
+        <div class="form-group">
+            <label class="control-label">{{ form_label(form.partenaire) }}</label>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text prep-color"><i class="fas fa-chalkboard-teacher"></i></span>
+                    </div>
+                    {{ form_widget(form.partenaire) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="justify-content-center row mb-5">
+        <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+    </div>
+</div>
+
+
+
+
+
 {{ form_end(form) }}

@@ -3,31 +3,35 @@
 {% block title %}Company{% endblock %}
 
 {% block body %}
-    <h1>Company</h1>
+    <div class="container">
+        <div class="row">
+            <a href="{{ path('company_index') }}"><i class="fas fa-chevron-circle-left fa-3x"></i></a>
+            <h1 class="text-center title_detail_event">Détail de la compagnie</h1>
+        </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ company.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ company.name }}</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td>{{ company.type }}</td>
-            </tr>
-            <tr>
-                <th>Partenaire</th>
-                <td>{{ company.partenaire ? 'Yes' : 'No' }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="row mt-5">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ company.name }}</td>
+                </tr>
+                <tr>
+                    <th>Type</th>
+                    <td>{{ company.type }}</td>
+                </tr>
+                <tr>
+                    <th>Partenaire</th>
+                    <td>{{ company.partenaire ? 'Yes' : 'No' }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <a href="{{ path('company_index') }}">back to list</a>
+    </div>
 
-    <a href="{{ path('company_edit', {'id': company.id}) }}">edit</a>
+    <div class="row">
+            <a class="btn btn-primary ml-5 mx-auto" href="{{ path('company_edit', {'id': company.id}) }}">Modifier la compagnie</a>
+    </div>
 
 {% endblock %}
