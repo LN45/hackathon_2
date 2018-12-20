@@ -16,8 +16,11 @@
         <tbody>
         {% for event in events %}
             <tr>
-                <td>{{ event.id }}</td>
                 <td>{{ event.name }}</td>
+                <td>{{ event.date|date('d/m/Y') }}</td>
+                <td>{{ event.type }}</td>
+                <td>{{ event.organizer }}</td>
+                <td>{{ event.description }}</td>
                 <td>
                     <a href="{{ path('event_show', {'id': event.id}) }}">show</a>
                     <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>

@@ -15,12 +15,10 @@ class EventType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('contacts', EntityType::class, [
-                'class'=>Contact::class,
-                'choice_label'=>'firstName',
-                'multiple'=>true,
-
-            ])
+            ->add('date')
+            ->add('type')
+            ->add('organizer')
+            ->add('description')
         ;
     }
 
