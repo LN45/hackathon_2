@@ -10,8 +10,8 @@
     {{ form_errors(form.contactNumber) }}
 </div>
 <div class="row no-gutters">
-    <div class="col-12"><label for="{{ form.satisfactionNote.vars.id }}">Quelle est votre taux de satisfaction vis à vis de {{ event.name }} ?</label></div>
-    <div class="col-12">{{ form_widget(form.satisfactionNote) }}</div>
+    <div class="col-12"><label for="{{ form.satisfactionNote.vars.id }}">Quelle est votre taux de satisfaction vis à vis de {{ event.name }} ?</label></div><br />
+    <br><div class="col">{{ form_widget(form.satisfactionNote) }}</div>
     {{ form_errors(form.satisfactionNote) }}
 </div>
 <div class="fakeformulaire">
