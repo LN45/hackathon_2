@@ -7,3 +7,179 @@
 .red{
     color: #ec3338 !important;
 }
+
+
+h1 {
+    font-size: 3em;
+    text-align: center;
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+.event_list {
+    table {
+        th {
+            font-weight: bold;
+            color : black;
+        }
+    }
+}
+
+.button_new {
+    border-radius: 0.5em;
+    color : #462DF7;
+    a {
+        text-decoration: none;
+        &:hover{
+            color : white;
+        }
+    }
+}
+label{
+    font-size: 1.2em;
+    padding-left : 10%;
+    white-space : nowrap;
+    color : grey;
+}
+input{
+    padding-left : 10%;
+}
+
+.fa-chevron-circle-left {
+    margin-left: 10%;
+    color : red;
+}
+
+.form_event {
+    padding-bottom: 4%;
+}
+
+
+/*upload image*/
+
+#event_pictureFile_file {
+    .custom-file-input {
+        position: relative;
+        z-index: 2;
+        width: 0px;
+        height: 50px;
+        opacity: 0;
+        margin-bottom: 50px;
+    }
+}
+
+.custom-file-input:focus ~ .custom-file-label {
+    border-color: transparent;
+    box-shadow: transparent;
+}
+
+.vich-image .custom-file {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: calc(2.8125rem + 0);
+    margin-bottom: 50px;
+}
+
+.custom-file-label {
+    background-color: #ec3338;
+    text-align: center;
+    height: 45px;
+}
+
+@media (max-width: 576px) {
+    .custom-file-label {
+        text-align: left;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
+.custom-file-label::after {
+    background-color: #ec272c !important;
+    color: white !important;
+    content: "Parcourir...";
+}
+
+.button-save {
+    min-width: 150px;
+    background-color: black;
+    color: white;
+}
+.sphere{
+    background: radial-gradient(circle at 100px 100px, transparent, rgba(114, 137, 175,1));
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+
+}
+.preview-img {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    opacity: 0.7;
+}
+
+.title-form {
+    padding-right: 6vw;
+    margin-bottom: 5vh;
+}
+
+.prep-color {
+    background-color: #ec272c !important;
+    color: white !important;
+}
+
+.color-input {
+    background-color: white;
+}
+.size-input{
+    min-width: 500px;
+}
+
+.invalid-feedback {
+    margin-bottom: 2vh;
+    font-weight: bold;
+}
+.custom-select[multiple], .custom-select[size]:not([size="1"]) {
+    height: auto;
+    padding-right: 0.75rem;
+    background-image: none;
+    min-width: 260px;
+}
+
+/*snow*/
+.snowBall{
+    width: 100%;
+    background-image:
+            url('https://4.bp.blogspot.com/-RGdg1HwjcN0/V0MfveH5tnI/AAAAAAAAV9U/JuZAFpkJmHkhrLHTY3Nzt--f1_D4QUDRACLcB/s1600/s1.png'),
+            url('https://3.bp.blogspot.com/-lLYG_aPYaWI/V0MfvZui2cI/AAAAAAAAV9Q/ivLLay21G6IKLLGEI-bHgpzmPRHFubhwgCLcB/s1600/s2.png'),
+            url('https://3.bp.blogspot.com/-mPW9Z5fvV5w/V0MfvZ1kmnI/AAAAAAAAV9Y/qU7_F2J0XP4bXNi3rIyV55Y1z9RyTRoqQCLcB/s1600/s3.png');
+
+    z-index:1;
+    -webkit-animation: snow 6s linear infinite;
+    -moz-animation: snow 6s linear infinite;
+    -ms-animation: snow 6s linear infinite;
+    animation: snow 6s linear infinite;
+}
+@keyframes snow {
+    0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+    50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+    100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-moz-keyframes snow {
+    0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+    50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+    100% {background-position: 400px 1000px, 200px 400px, 100px 300px;}
+}
+@-webkit-keyframes snow {
+    0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+    50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+    100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-ms-keyframes snow {
+    0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+    50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+    100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
