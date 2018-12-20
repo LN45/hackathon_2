@@ -3,38 +3,48 @@
 {% block title %}Event index{% endblock %}
 
 {% block body %}
-    <h1>Liste des évènements</h1>
+    <div class="container">
+        <div class="row event_list">
+            <h1 class="mx-auto">Liste des évènements</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nom évènement</th>
-                <th>Date</th>
-                <th>Type</th>
-                <th>Organisateur</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for event in events %}
-            <tr>
-                <td>{{ event.name }}</td>
-                <td>{{ event.date|date('d/m/Y') }}</td>
-                <td>{{ event.type }}</td>
-                <td>{{ event.organizer }}</td>
-                <td>{{ event.description }}</td>
-                <td>
-                    <a href="{{ path('event_show', {'id': event.id}) }}"><i class="fas fa-pen"></i></a>
-                    <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('event_new') }}">Create new</a>
+            <table class="table table_event">
+                <thead>
+                <tr>
+                    <th>Nom évènement</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Organisateur</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for event in events %}
+                    <tr>
+                        <td>{{ event.name }}</td>
+                        <td class="justify-content-center">{{ event.date|date('d/m/Y') }}</td>
+                        <td>{{ event.type }}</td>
+                        <td>{{ event.organizer }}</td>
+                        <td>{{ event.description }}</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-6">
+                                    <a href="{{ path('event_show', {'id': event.id}) }}"><i class="far fa-eye"></i></a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="{{ path('event_edit', {'id': event.id}) }}"><i class="fas fa-pen"></i></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <button class="mx-auto button_new btn btn-outline-dark"><a class="button_link" href="{{ path('event_new') }}">Ajouter un évènement</a></button>
+        </div>
+    </div>
 {% endblock %}

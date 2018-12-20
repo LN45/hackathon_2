@@ -1,4 +1,42 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $( function() {
+        $( "#datepicker" ).datepicker();
+    } );
+</script>
+
+<div class="container">
+    {{ form_start(form) }}
+    <div class="row justify-content-center align-items-center form_event">
+        <div class="col-5"><label>Nom évènement</label></div>
+        <div class="col-7">{{ form_widget(form.name) }}</div>
+    </div>
+
+    <div class="row justify-content-center align-items-center form_event">
+        <div class="col-5"><label>Date</label></div>
+        <div class="col-7">{{ form_widget(form.date) }}</div>
+    </div>
+
+    <div class="row justify-content-center align-items-center form_event">
+        <div class="col-5"><label>Type</label></div>
+        <div class="col-7">{{ form_widget(form.type) }}</div>
+    </div>
+
+    <div class="row justify-content-center align-items-center form_event">
+        <div class="col-5"><label>Organisateur</label></div>
+        <div class="col-7">{{ form_widget(form.organizer) }}</div>
+    </div>
+
+    <div class="row justify-content-center align-items-center form_event">
+        <div class="col-5"><label>Description</label></div>
+        <div class="col-7">{{ form_widget(form.description) }}</div>
+    </div>
+
+    {#{{ form_widget(form) }}#}
+        <button class="btn">{{ button_label|default('Save') }}</button>
+
+    {{ form_end(form) }}
+</div>

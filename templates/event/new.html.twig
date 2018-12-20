@@ -4,9 +4,9 @@
 {% block title %}New Event{% endblock %}
 
 {% block body %}
-    <h1>Create new Event</h1>
 
-    {{ include('event/_form.html.twig') }}
+        <h1>Ajouter un évènement</h1>
+                <a href="{{ path('event_index') }}"><i class="fas fa-chevron-circle-left fa-3x"></i></a>
+                {{ include('event/_form.html.twig') }}
 
-    <a href="{{ path('event_index') }}">back to list</a>
 {% endblock %}

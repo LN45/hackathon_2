@@ -7,3 +7,47 @@
 .red{
     color: #ec3338 !important;
 }
+
+h1 {
+    font-size: 3em;
+    text-align: center;
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+//.event_list {
+    table {
+        th {
+            font-weight: bold;
+            color : black;
+        }
+    }
+//}
+
+.button_new {
+    border-radius: 0.5em;
+    color : #462DF7;
+    a {
+        text-decoration: none;
+        &:hover{
+            color : white;
+        }
+    }
+}
+label{
+    font-size: 1.2em;
+    padding-left : 10%;
+    white-space : nowrap;
+    color : grey;
+}
+input{
+    padding-left : 10%;
+}
+
+.fa-chevron-circle-left {
+    margin-left: 10%;
+    color : red;
+}
+
+.form_event {
+    padding-bottom: 4%;
+}
