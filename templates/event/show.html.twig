@@ -18,11 +18,34 @@
         </tbody>
     </table>
 
+    <h4>Participants</h4>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Société</th>
+            </tr>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{contact.id}}</td>
+                <td>{{contact.firstName}}</td>
+                <td>{{contact.lastName}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.companyName}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
     <a href="{{ path('event_index') }}">back to list</a>
 
     <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
 
-    <a href="{{ path('mail', {'name': event.name, "email" : "milonte@gmail.com" }) }}">send mail</a>
+    {% include "event/_mail.html.twig" %}
 
     {{ include('event/_delete_form.html.twig') }}
 {% endblock %}

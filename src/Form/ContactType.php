@@ -16,6 +16,8 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('firstName', TextType::class)
+            ->add('lastname', TextType::class)
+            ->add('email', TextType::class)
             ->add('companyName', TextType::class)
             ->add('event', EntityType::class,[
                 'class'=> Event::class,
