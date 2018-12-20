@@ -14,8 +14,8 @@
             <table class="table">
                 <thead>
                 <tr>
+                    <th>logo</th>
                     <th>Nom</th>
-                    <th>Date</th>
                     <th>Type</th>
                     <th>Organisateur</th>
                     <th>Description</th>
@@ -25,6 +25,7 @@
                 <tbody>
                 {% for event in events %}
                     <tr>
+                        <td><img src="{{ asset("images/events/")}}{{ event.picture }}" class="logoShow"></td>
                         <td>{{ event.name }}</td>
                         <td>{{ event.type }}</td>
                         <td>{{ event.organizer }}</td>
