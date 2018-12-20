@@ -22,7 +22,10 @@
 
     <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
 
+    <a href="{{ path('satisfaction_quizz_new', {'event': event.id}) }}">Créer un Formulaire</a>
+
     <a href="{{ path('mail', {'name': event.name, "email" : "milonte@gmail.com" }) }}">send mail</a>
+
 
     {{ include('event/_delete_form.html.twig') }}
 {% endblock %}

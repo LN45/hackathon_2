@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
+use App\Entity\Event;
 use App\Entity\SatisfactionQuizz;
 use App\Form\SatisfactionQuizzType;
 use App\Repository\SatisfactionQuizzRepository;
@@ -24,25 +26,54 @@ class SatisfactionQuizzController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="satisfaction_quizz_new", methods={"GET","POST"})
+     * @Route("/{event}/new", name="satisfaction_quizz_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Event $event): Response
     {
+
         $satisfactionQuizz = new SatisfactionQuizz();
         $form = $this->createForm(SatisfactionQuizzType::class, $satisfactionQuizz);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $satisfactionQuizz->setEvent ($event);
             $entityManager->persist($satisfactionQuizz);
             $entityManager->flush();
 
-            return $this->redirectToRoute('satisfaction_quizz_index');
+            return $this->redirectToRoute('event_index');
         }
 
         return $this->render('satisfaction_quizz/new.html.twig', [
             'satisfaction_quizz' => $satisfactionQuizz,
             'form' => $form->createView(),
+            'event' =>$event
+        ]);
+    }
+    /**
+     * @Route("response/{event}/{contact}", name="satisfaction_quizz_response", methods={"GET","POST"})
+     */
+    public function quizzResponse(Request $request, Event $event, Contact $contact): Response
+    {
+
+        $satisfactionQuizz = new SatisfactionQuizz();
+        $form = $this->createForm(SatisfactionQuizzType::class, $satisfactionQuizz);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $satisfactionQuizz->setEvent ($event);
+            $satisfactionQuizz->setEmail($contact->getEmail ());
+            $entityManager->persist($satisfactionQuizz);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('event_index');
+        }
+
+        return $this->render('satisfaction_quizz/response.html.twig', [
+            'satisfaction_quizz' => $satisfactionQuizz,
+            'form' => $form->createView(),
+            'event'=>$event
         ]);
     }
 

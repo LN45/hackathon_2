@@ -36,6 +36,11 @@ class Contact
      */
     private $satisfactionQuizz;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,18 @@ class Contact
     public function setSatisfactionQuizz(?SatisfactionQuizz $satisfactionQuizz): self
     {
         $this->satisfactionQuizz = $satisfactionQuizz;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }
