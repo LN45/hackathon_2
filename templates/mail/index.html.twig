@@ -11,7 +11,7 @@
     <h1>Bonjour {{ contact.firstName }} ! ✅</h1>
 
     Vous avez participer récement à l'événement "{{ event.name }}". <br />
-    Merci de répondre à ce questionaire de satisfaction en cliquant <a href="{{ 'src/Controller/MailController.php'|file_link(0) }}">ici</a>, afin que nous soyons satisfait !<br />
+    Merci de répondre à ce questionaire de satisfaction en cliquant <a href="http://127.0.0.1:8000/satisfaction/quizz/response/{{ event.id }}/{{ contact.id }}">ici</a>, afin que nous soyons satisfait !<br />
     En vous remerciant,<br />
     <img src="http://www.le-lab-o.fr/skin/assets/img/lab-o-logo.png" />
        
