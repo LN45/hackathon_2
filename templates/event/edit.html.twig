@@ -4,6 +4,7 @@
 {% block title %}Edit Event{% endblock %}
 
 {% block body %}
+
     <div class="container">
         <div class="row">
             <a href="{{ path('event_index') }}"><i class="fas fa-chevron-circle-left fa-3x col-lg-2 mr-5"></i></a>
@@ -11,6 +12,7 @@
         </div>
     </div>
     {{ include('event/_formEdit.html.twig', {'button_label': 'Mettre à jour'}) }}
+
 
 
 {% endblock %}
