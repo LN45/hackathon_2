@@ -31,6 +31,11 @@ class Contact
      */
     private $event;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Company", inversedBy="contacts")
+     */
+    private $company;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class Contact
     public function setEvent(?Event $event): self
     {
         $this->event = $event;
+
+        return $this;
+    }
+
+    public function getCompany(): ?Company
+    {
+        return $this->company;
+    }
+
+    public function setCompany(?Company $company): self
+    {
+        $this->company = $company;
 
         return $this;
     }
