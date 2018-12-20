@@ -12,18 +12,31 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class EventType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
             ->add('date')
             ->add('type')
             ->add('organizer')
             ->add('description')
-        ;
+            ->add('name', TextType::class, [
+            'attr' => array('type' => 'text', 'class' => 'color-input size-input'),
+            'label' => 'Nom',
+        ])
+            ->add('pictureFile', VichImageType::class, [
+                'required' => true,
+                'download_link' => false,
+                'allow_delete' => false,
+                'label' => ' ',
+                'attr' => array('aria-describedby' => 'fileHelp', 'class' => 'form-control-file')
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
