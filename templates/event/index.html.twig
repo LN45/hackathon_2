@@ -3,14 +3,16 @@
 {% block title %}Event index{% endblock %}
 
 {% block body %}
-    <h1>Event index</h1>
+    <h1>Liste des évènements</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
+                <th>Nom évènement</th>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Organisateur</th>
+                <th>Description</th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +24,7 @@
                 <td>{{ event.organizer }}</td>
                 <td>{{ event.description }}</td>
                 <td>
-                    <a href="{{ path('event_show', {'id': event.id}) }}">show</a>
+                    <a href="{{ path('event_show', {'id': event.id}) }}"><i class="fas fa-pen"></i></a>
                     <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
                 </td>
             </tr>
