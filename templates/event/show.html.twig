@@ -7,7 +7,8 @@
         <div class="row">
             <a href="{{ path('event_index') }}"><i class="fas fa-chevron-circle-left fa-3x"></i></a>
         </div>
-        <h1 class="text-center title_detail_event">Statistique de l'Evènement</h1>
+        <h1 class="text-center">{{ event.name }}</h1>
+        <h4 class="text-center">Statistique de l'Evènement</h4>
         <table class="table">
         <th>
             Moyenne note événement: {{ average.avgNote }}
@@ -19,9 +20,9 @@
             Taux de réponse : {{ participationRate }} %
         </th>
         </table>
-        <h1 class="text-center title_detail_event">Détail de l'évènement</h1>
-        <div class="row mt-5">
-            <table class="table">
+        <div class="row mt-5 ">
+        <h4 class="mx-auto">Détail de l'évènement</h4>
+            <table class="table text-center">
                 <tbody>
                 <tr>
                     <th>Nom</th>
@@ -46,7 +47,7 @@
        <div class="row mt-5">
            <h4 class="mx-auto">Participants</h4>
            
-           <table class="table">
+           <table class="table text-center">
                <tbody>
                 <tr>
                     <th>Id</th>
