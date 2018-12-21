@@ -16,4 +16,14 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+
+    /**
+     * @Route("/labocoin", name="labocoin")
+     */
+    public function laboshow()
+    {
+        return $this->render('labocoin.html.twig');
+    }
+
 }
+
