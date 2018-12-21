@@ -287,6 +287,13 @@ table {
     }
 }
 
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: 100%;
+
 .title_gras {
     font-weight: bold;
     color : black;
