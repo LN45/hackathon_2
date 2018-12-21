@@ -14,8 +14,12 @@ class ShopController extends AbstractController
      */
     public function index(Contact $contact)
     {
+
+        $contactGold = $this->getDoctrine()->getRepository(Gold::class)->findOneBy(['email'=>$contact->getEmail()]);
+
         return $this->render('shop/index.html.twig', [
             'contact' => $contact,
+            'gold' => $contactGold,
         ]);
     }
 
