@@ -8,7 +8,7 @@
             <a href="{{ path('company_index') }}"><i class="fas fa-chevron-circle-left fa-3x"></i></a>
         </div>
         <h1 class="text-center title_detail_event">Statistiques de {{ company.name }}</h1>
-        <table class="table">
+        <table class="table table_evenement">
         <th>
             Nb total de participation : {{ nbEvent.nbEvent }}
         </th>
@@ -18,7 +18,7 @@
         </table>
         <h1 class="text-center title_detail_event">Détail de la {{ company.name }}</h1>
         <div class="row mt-5">
-            <table class="table">
+            <table class="table table_evenement">
                 <tbody>
                 <tr>
                     <th>Nom</th>
