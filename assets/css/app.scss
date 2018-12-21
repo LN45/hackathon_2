@@ -40,6 +40,19 @@ h1 {
 body{
     outline: none !important;
 }
+
+.gold_logo {
+    -webkit-animation: rotation 5s infinite linear;
+}
+@-webkit-keyframes rotation {
+    from {
+        transform : rotate3d(0,1,0,0deg);
+    }
+    to {
+        transform : rotate3d(0,1,0,359deg);
+    }
+}
+
 //.event_list {
 //    table {
 //        th {
@@ -286,6 +299,12 @@ table {
     th {
         font-weight: bold;
     }
+    td {
+        color:black;
+    }
+}
+label {
+    color: black;
 }
 
 .input-group {
@@ -298,4 +317,23 @@ table {
 .title_gras {
     font-weight: bold;
     color : black;
+}
+h4 {
+    color: #ec3338;
+}
+
+.table_evenement {
+    th {
+        color:black;
+    }
+}
+
+.carte_home {
+    h5 {
+        color : black;
+        font-weight: bold;
+    }
+    p {
+        color: black;
+    }
 }

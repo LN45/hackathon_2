@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Company{% endblock %}
+{% block title %}{{ company.name }}{% endblock %}
 
 {% block body %}
     <div class="container">
@@ -8,7 +8,7 @@
             <a href="{{ path('company_index') }}"><i class="fas fa-chevron-circle-left fa-3x"></i></a>
         </div>
         <h1 class="text-center title_detail_event">Statistiques de {{ company.name }}</h1>
-        <table class="table">
+        <table class="table table_evenement">
         <th>
             Nb total de participation : {{ nbEvent.nbEvent }}
         </th>
@@ -16,9 +16,9 @@
             Nb nouveaux contacts générés : {{ nbContact.nbNewContact }}
         </th>
         </table>
-        <h1 class="text-center title_detail_event">Détail de la compagnie</h1>
+        <h1 class="text-center title_detail_event">Détail de la {{ company.name }}</h1>
         <div class="row mt-5">
-            <table class="table">
+            <table class="table table_evenement">
                 <tbody>
                 <tr>
                     <th>Nom</th>

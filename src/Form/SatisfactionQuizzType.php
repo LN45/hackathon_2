@@ -31,6 +31,7 @@ class SatisfactionQuizzType extends AbstractType
                     return ['class' => 'ml-3'];
                 },
                 'attr' => array('type' => 'text', 'class' => 'color-input size-input'),
+
             ))
             ->add('satisfactionNote', ChoiceType::class, array(
                 'choices' => $choices,

@@ -1,18 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}{{ contact.firstName }} {{ contact.lastName }}{% endblock %}
 
 {% block body %}
     <div class="container">
         <div class="row">
-            <h1 class="text-center title_detail_event">Détail du contact</h1>
             <a href="{{ path('contact_index') }}"><i class="fas fa-chevron-circle-left fa-3x"></i></a>
         </div>
         <h1 class="text-center title_detail_event">Statistiques de {{ contact.firstName }} {{ contact.lastName }}</h1>
             <tbody>
-            <table class="table">
+            <table class="table table_evenement">
             <th>
-                J'ai participé à {{ nbEvent.nbEvent }} événements
+                J'ai participé à {{ nbEvent.nbEvent }} événement(s)
             </th>
             <th>
                 J'ai rencontré  {{ nbNewContact.nbNewContact }} nouveaux contacts.
@@ -20,7 +19,7 @@
         </table>
         <h1 class="text-center title_detail_event">Détail de {{ contact.firstName}} {{ contact.lastName }}</h1>
         <div class="row mt-5">
-            <table class="table">
+            <table class="table table_evenement">
                 <tbody>
                 <tr>
                     <th>Prénom</th>
@@ -44,7 +43,7 @@
                 </tr>
                 <tr>
                     <th>Golds</th>
-                    <td>{{ gold.quantity }}<img src="/images/gold.png" width="50px" height="50px"><a href="{{ path('shop', {'id': contact.id}) }}" class="btn btn-primary mt-0 ml-3">Dépenser</a></td>
+                    <td>{{ gold.quantity }}   <img src="/images/gold.png"  width="40px" height="40px" class="gold_logo"><a href="{{ path('shop', {'id': contact.id}) }}" class="btn btn-primary mt-0 ml-3">Dépenser</a></td>
                 </tr>
                 </tbody>
             </table>

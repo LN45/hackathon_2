@@ -66,8 +66,7 @@ class ContactRepository extends ServiceEntityRepository
     {
         $qb=$this->createQueryBuilder ('c')
             ->select('COUNT(c.event) as countParticipant')
-            ->join ('c.satisfactionQuizz','sq')
-            ->Where ('sq.event = :eventid')
+            ->Where ('c.event = :eventid')
             ->setParameter ('eventid', $eventid)
             ->getQuery ()
         ;

@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Contact;
 use App\Service\MailService;
 use App\Entity\Event;
+use App\Entity\SatisfactionQuizz;
 
 class MailController extends AbstractController
 {
@@ -37,10 +38,10 @@ class MailController extends AbstractController
             ;
             $mailer->send($message);
             }
-        
     
-    
-
+            /* $satisfactionQuizz = $this->getDoctrine()->getRepository(SatisfactionQuizz::class)->findOneBy(['email'=>$contact->getEmail(), 'event'=>$event->getId() ]);
+            $contact->setSatisfactionQuizz($satisfactionQuizz);
+            $this->getDoctrine()->getManager()->flush(); */
         }
 
        
