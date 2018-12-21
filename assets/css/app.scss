@@ -285,6 +285,12 @@ table {
     th {
         font-weight: bold;
     }
+    td {
+        color:black;
+    }
+}
+label {
+    color: black;
 }
 
 .input-group {
@@ -297,4 +303,13 @@ table {
 .title_gras {
     font-weight: bold;
     color : black;
+}
+h4 {
+    color: #ec3338;
+}
+
+.table_evenement {
+    th {
+        color:black;
+    }
 }
