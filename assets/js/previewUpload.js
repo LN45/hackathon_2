@@ -22,3 +22,7 @@ function previewUpload(input, f, maxSize) {
 // console.log($('#event_pictureFile_file').next());
 
 $('#event_pictureFile_file').next().addClass("d-none");
+$('#company_type_0').removeClass("ml-3");
+$('#company_type_0').addClass("ml150");
+$('#company_type_1').removeClass("ml-3");
+$('#company_type_1').addClass("ml50");
