@@ -61,7 +61,11 @@ class EventController extends AbstractController
         $sumContact=$contactRepository->SumContactCreation ($event->getId ());
         $nbAnswer=$contactRepository->nbAnswer ($event->getId ());
         $countParticipant=$contactRepository->countParticipants ($event->getId ());
-        $participationRate = $nbAnswer['nbAnswer'] / $countParticipant['countParticipant'] * 100;
+        if( $countParticipant['countParticipant'] != 0 ) {
+            $participationRate = $nbAnswer['nbAnswer'] / $countParticipant['countParticipant'] * 100;
+        } else {
+            $participationRate = 0;
+        }
 
         $contacts = $this->getDoctrine()->getRepository(Contact::class)->findBy(['event'=>$event]);
 
