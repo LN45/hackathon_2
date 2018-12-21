@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <a href="{{ path('contact_new') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i>Ajouter un contact</a>
+            <div class="ml-5 mt-4">
+                <h1>shop</h1>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>Prix</th>
+                    <th class="text-right"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Café</td>
+                    <td><img src="/images/shop/coffee.jpg" height="80px" ></td>
+                    <td>A zerze rzesefsdg trt hrthz efz hrtjtyjzef fger erg fg sffgz gs</td>
+                    <td>5 <img src="/images/gold.png" width="50px" height="50px"></td>
+                    <td class="text-right"> <a class="btn btn-primary ml-5 mx-auto" href="{{ path('shop_buy', {'contact': contact.id, 'price': '5'}) }}">Choisir</a></td>
+                </tr>
+                <tr>
+                    <td>Thé</td>
+                    <td><img src="/images/shop/tea.png" height="80px" ></td>
+                    <td>A zerze rzesefsdg trt hrthz efz hrtjtyjzef fger erg fg sffgz gs</td>
+                    <td>5 <img src="/images/gold.png" width="50px" height="50px"></td>
+                    <td class="text-right"> <a class="btn btn-primary ml-5 mx-auto" href="{{ path('shop_buy', {'contact': contact.id, 'price': '5'}) }}">Choisir</a></td>
+                </tr>
+                <tr>
+                    <td>Foodtruck</td>
+                    <td><img src="/images/shop/foodtruck.png" height="80px" ></td>
+                    <td>A zerze rzesefsdg trt hrthz efz hrtjtyjzef fger erg fg sffgz gs</td>
+                    <td>15 <img src="/images/gold.png" width="50px" height="50px"></td>
+                    <td class="text-right"> <a class="btn btn-primary ml-5 mx-auto" href="{{ path('shop_buy', {'contact': contact.id, 'price': '15'}) }}">Choisir</a></td>
+                </tr>
+                <tr>
+                    <td>Location de voiture</td>
+                    <td><img src="/images/shop/voiture.jpeg" height="80px" ></td>
+                    <td>A zerze rzesefsdg trt hrthz efz hrtjtyjzef fger erg fg sffgz gs</td>
+                    <td>20 <img src="/images/gold.png" width="50px" height="50px"></td>
+                    <td class="text-right"> <a class="btn btn-primary ml-5 mx-auto" href="{{ path('shop_buy', {'contact': contact.id, 'price': '20'}) }}">Choisir</a></td>
+                </tr>
+                <tr>
+                    <td>Vous ! sur tout les écrans du Lab'O</td>
+                    <td><img src="/images/shop/ecran.png" height="80px" ></td>
+                    <td>A zerze rzesefsdg trt hrthz efz hrtjtyjzef fger erg fg sffgz gs</td>
+                    <td>30 <img src="/images/gold.png" width="50px" height="50px"></td>
+                    <td class="text-right"> <a class="btn btn-primary ml-5 mx-auto" href="{{ path('shop_buy', {'contact': contact.id, 'price': '30'}) }}">Choisir</a></td>
+                </tr>
+                <tr>
+                    <td>Location de salle</td>
+                    <td><img src="/images/shop/salle.jpg" height="80px" ></td>
+                    <td>A zerze rzesefsdg trt hrthz efz hrtjtyjzef fger erg fg sffgz gs</td>
+                    <td>50 <img src="/images/gold.png" width="50px" height="50px"></td>
+                    <td class="text-right"> <a class="btn btn-primary ml-5 mx-auto" href="{{ path('shop_buy', {'contact': contact.id, 'price': '50'}) }}">Choisir</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+{% endblock %}
