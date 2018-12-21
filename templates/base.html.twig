@@ -9,21 +9,25 @@
     </head>
     <body>
     {% block header %}
+
         {% include 'navbar.html.twig' %}
     {% include 'banner.html.twig' %}
     {% endblock %}
     {% for label, messages in app.flashes %}
+        <audio id="audioPlayer" preload="auto"><source src="../sound/ping.mp3" type="audio/mpeg">Your browser does not support the audio element.
+        </audio>
         {% for message in messages %}
             <div class="row mt-3">
                 <div class="col-lg-6 mx-auto alert alert-dismissible alert-{{ label }} flash-{{ label }} fade show">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    {{ message }} {% if label == "success" %} <img src="/images/gold.png"  width="50px" height="50px"><audio id="audioPlayer" src="/sound/smb3_sound_effects_coin (online-audio-converter.com).mp3"></audio>
-                        <script>
-                            var player = document.querySelector('#audioPlayer');
-                            player.play();
-                        </script>
-                    {% endif %}
+                    {{ message }} {% if label == "success" %} <img src="/images/gold.png"  width="50px" height="50px">
                 </div>
+                {% endif %}
+
+                <script>
+                    let test = document.querySelector('#audioPlayer');
+                    test.play();
+                </script>
             </div>
         {% endfor %}
     {% endfor %}

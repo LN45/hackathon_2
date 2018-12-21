@@ -24,6 +24,7 @@ class EventController extends AbstractController
      */
     public function index(EventRepository $eventRepository): Response
     {
+//        $this->addFlash ('success', 'test');
         return $this->render('event/index.html.twig', ['events' => $eventRepository->findAll()]);
     }
 
