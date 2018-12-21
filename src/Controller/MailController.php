@@ -39,9 +39,9 @@ class MailController extends AbstractController
             $mailer->send($message);
             }
     
-            $satisfactionQuizz = $this->getDoctrine()->getRepository(SatisfactionQuizz::class)->findOneBy(['email'=>$contact->getEmail(), 'event'=>$event->getId() ]);
+            /* $satisfactionQuizz = $this->getDoctrine()->getRepository(SatisfactionQuizz::class)->findOneBy(['email'=>$contact->getEmail(), 'event'=>$event->getId() ]);
             $contact->setSatisfactionQuizz($satisfactionQuizz);
-            $this->getDoctrine()->getManager()->flush();
+            $this->getDoctrine()->getManager()->flush(); */
         }
 
        

@@ -71,6 +71,8 @@ class SatisfactionQuizzController extends AbstractController
                 $gold->addQuantity(20);
                 $entityManager->persist($satisfactionQuizz);
                 $entityManager->flush();
+                $contact->setSatisfactionQuizz($satisfactionQuizz);
+                $entityManager->flush();
     
                 $this->addFlash(
                     'success',
