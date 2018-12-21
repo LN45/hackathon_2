@@ -46,6 +46,6 @@ class ShopController extends AbstractController
             );
         }
 
-        return $this->render('shop/index.html.twig', [ 'contact' => $contact ]);
+        return $this->render('shop/index.html.twig', [ 'contact' => $contact, 'gold' => $contactGold, ]);
     }
 }
