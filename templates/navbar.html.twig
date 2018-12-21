@@ -10,13 +10,13 @@
                 {#<a class="nav-link red font-weight-bold sizeBigger" href="#">Home <span class="sr-only">(current)</span></a>#}
             {#</li>#}
             <li class="nav-item">
-                <a class="nav-link" href="/event">Evènements</a>
+                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "event" %}red font-weight-bold sizeBigger{% endif %}" href="/event">Evènements</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/company">Compagnies</a>
+                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "company" %} red font-weight-bold sizeBigger{% endif %}" href="/company">Compagnies</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/contact">Contacts</a>
+                <a class="nav-link {% if app.request.attributes.get('_route') starts with  "contact" %}red font-weight-bold sizeBigger{% endif %}" href="/contact">Contacts</a>
             </li>
         </ul>
     </div>
