@@ -49,9 +49,17 @@ class ContactController extends AbstractController
     /**
      * @Route("/{id}", name="contact_show", methods={"GET"})
      */
-    public function show(Contact $contact): Response
+    public function show(Contact $contact, ContactRepository $contactRepository): Response
     {
-        return $this->render('contact/show.html.twig', ['contact' => $contact]);
+        $nbEvent=$contactRepository->countEventByPerson ($contact->getEmail ());
+        $nbNewContact=$contactRepository->countNewContactByPerson ($contact->getEmail ());
+
+        return $this->render('contact/show.html.twig', [
+            'contact' => $contact,
+            'nbEvent'=>$nbEvent,
+            'nbNewContact'=>$nbNewContact,
+
+        ]);
     }
 
     /**
