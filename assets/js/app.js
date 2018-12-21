@@ -14,3 +14,4 @@ require('@fortawesome/fontawesome-free/css/all.min.css');
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 import 'bootstrap';
 import "./previewUpload";
+import "./dear";

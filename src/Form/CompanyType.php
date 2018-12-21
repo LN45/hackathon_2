@@ -24,7 +24,7 @@ class CompanyType extends AbstractType
                     'Entreprise externe' => 'externe',
                     ],
                 'expanded' => 'true',
-                'attr' => array('class' => 'custom-control-input')
+//                'attr' => array('class' => 'custom-control-input')
 //                'attr'=> array('type'=> 'radio', 'class' => 'custom-control-input'),
 //                'label' => 'Type'
             ])

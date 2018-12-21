@@ -16,8 +16,12 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>FirstName</th>
-                    <th>CompanyName</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Compagnie</th>
+
+
 
                     <th class="text-right">actions</th>
                 </tr>
@@ -26,7 +30,9 @@
                 {% for contact in contacts %}
                     <tr>
                         <td>{{ contact.id }}</td>
+                        <td>{{ contact.lastname }}</td>
                         <td>{{ contact.firstName }}</td>
+                        <td>{{ contact.email }}</td>
                         <td>{{ contact.company.name }}</td>
                         <td class="text-right">
                             <a href="{{ path('contact_show', {'id': contact.id}) }}"><i class="far fa-eye"></i></a>

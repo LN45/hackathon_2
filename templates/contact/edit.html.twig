@@ -3,9 +3,15 @@
 {% block title %}Edit Contact{% endblock %}
 
 {% block body %}
-    <h1>Edit Contact</h1>
+    <div class="container">
+        <div class="row">
+            <a href="{{ path('contact_index') }}"><i class="fas fa-chevron-circle-left fa-3x col-lg-2"></i></a>
+            <h1 class="text-center col-lg-10">Modifier un contact</h1>
+        </div>
+    </div>
+
 
     {{ include('contact/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('contact_index') }}">back to list</a>
+
 {% endblock %}
