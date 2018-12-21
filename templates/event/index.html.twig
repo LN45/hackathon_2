@@ -17,6 +17,7 @@
                     <th>logo</th>
                     <th>Nom</th>
                     <th>Type</th>
+                    <th>Date</th>
                     <th>Organisateur</th>
                     <th>Description</th>
                     <th class="text-right">actions</th>
@@ -28,6 +29,7 @@
                         <td><img src="{{ asset("images/events/")}}{{ event.picture }}" class="logoShow"></td>
                         <td>{{ event.name }}</td>
                         <td>{{ event.type }}</td>
+                        <td>{{ event.date|date('d/m/Y') }}</td>
                         <td>{{ event.organizer }}</td>
                         <td>{{ event.description }}</td>
                         <td class="text-right">
