@@ -286,3 +286,10 @@ table {
         font-weight: bold;
     }
 }
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: 100%;
+}
