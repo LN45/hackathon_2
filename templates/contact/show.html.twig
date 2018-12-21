@@ -1,11 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}{{ contact.firstName }} {{ contact.lastName }}{% endblock %}
 
 {% block body %}
     <div class="container">
         <div class="row">
-            <h1 class="text-center title_detail_event">Détail du contact</h1>
             <a href="{{ path('contact_index') }}"><i class="fas fa-chevron-circle-left fa-3x"></i></a>
         </div>
         <h1 class="text-center title_detail_event">Statistiques de {{ contact.firstName }} {{ contact.lastName }}</h1>
