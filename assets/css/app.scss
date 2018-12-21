@@ -39,6 +39,19 @@ h1 {
 body{
     outline: none !important;
 }
+
+.gold_logo {
+    -webkit-animation: rotation 5s infinite linear;
+}
+@-webkit-keyframes rotation {
+    from {
+        transform : rotate3d(0,1,0,0deg);
+    }
+    to {
+        transform : rotate3d(0,1,0,359deg);
+    }
+}
+
 //.event_list {
 //    table {
 //        th {
