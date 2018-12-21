@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Event;
 use App\Entity\SatisfactionQuizz;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -18,6 +19,7 @@ class SatisfactionQuizzRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, SatisfactionQuizz::class);
     }
+
 
     // /**
     //  * @return SatisfactionQuizz[] Returns an array of SatisfactionQuizz objects

@@ -6,9 +6,17 @@
     <div class="container">
         <div class="row">
             <a href="{{ path('company_index') }}"><i class="fas fa-chevron-circle-left fa-3x"></i></a>
-            <h1 class="text-center title_detail_event">Détail de la compagnie</h1>
         </div>
-
+        <h1 class="text-center title_detail_event">Statistiques de {{ company.name }}</h1>
+        <table class="table">
+        <th>
+            Nb total de participation : {{ nbEvent.nbEvent }}
+        </th>
+        <th>
+            Nb nouveaux contacts générés : {{ nbContact.nbNewContact }}
+        </th>
+        </table>
+        <h1 class="text-center title_detail_event">Détail de la compagnie</h1>
         <div class="row mt-5">
             <table class="table">
                 <tbody>

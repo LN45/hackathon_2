@@ -6,10 +6,20 @@
     <div class="container">
         <div class="row">
             <a href="{{ path('event_index') }}"><i class="fas fa-chevron-circle-left fa-3x"></i></a>
-                <h1 class="text-center title_detail_event">Détail de l'évènement</h1>
         </div>
-
-
+        <h1 class="text-center title_detail_event">Statistique de l'Evènement</h1>
+        <table class="table">
+        <th>
+            Moyenne note événement: {{ average.avgNote }}
+        </th>
+        <th>
+            Nombre de création de contact : {{ sumContact.sumContact }}
+        </th>
+        <th>
+            Taux de réponse : {{ participationRate }} %
+        </th>
+        </table>
+        <h1 class="text-center title_detail_event">Détail de l'évènement</h1>
         <div class="row mt-5">
             <table class="table">
                 <tbody>
@@ -19,7 +29,7 @@
                 </tr>
                 <tr>
                     <th>Date</th>
-                    <td></td>
+                    <td>{{ event.date|date('d/m/Y') }}</td>
                 </tr>
                 <tr>
                     <th>Organisateur</th>
@@ -59,6 +69,7 @@
               </tbody>
            </table>
        </div>
+
         <div class="row">
             <div class="col-4">
                 <a class="btn btn-primary ml-5" href="{{ path('event_edit', {'id': event.id}) }}">Modifier l'évènement</a>

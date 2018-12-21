@@ -63,11 +63,21 @@ class ContactController extends AbstractController
     /**
      * @Route("/{id}", name="contact_show", methods={"GET"})
      */
-    public function show(Contact $contact): Response
+    public function show(Contact $contact, ContactRepository $contactRepository): Response
     {
-        $gold = $this->getDoctrine()->getRepository(Gold::class)->findOneBy(['email' => $contact->getEmail()]);
 
-        return $this->render('contact/show.html.twig', ['contact' => $contact, 'gold' => $gold]);
+        $nbEvent=$contactRepository->countEventByPerson ($contact->getEmail ());
+        $nbNewContact=$contactRepository->countNewContactByPerson ($contact->getEmail ());
+        $gold = $this->getDoctrine()->getRepository(Gold::class)->findOneBy(['email' => $contact->getEmail()]);
+      
+        return $this->render('contact/show.html.twig', [
+            'contact' => $contact,
+            'nbEvent'=>$nbEvent,
+            'nbNewContact'=>$nbNewContact,
+            'gold' => $gold
+
+        ]);
+
     }
 
     /**
