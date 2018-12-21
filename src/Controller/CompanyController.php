@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Company;
 use App\Form\CompanyType;
 use App\Repository\CompanyRepository;
+use App\Repository\ContactRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -49,9 +50,16 @@ class CompanyController extends AbstractController
     /**
      * @Route("/{id}", name="company_show", methods={"GET"})
      */
-    public function show(Company $company): Response
+    public function show(Company $company, ContactRepository $contactRepository): Response
     {
-        return $this->render('company/show.html.twig', ['company' => $company]);
+        $nbEvent=$contactRepository->countEventByCompany($company->getId ());
+        $nbContact=$contactRepository->countNewContactByCompany($company->getId ());
+
+        return $this->render('company/show.html.twig', [
+            'company' => $company,
+            'nbEvent'=>$nbEvent,
+            'nbContact'=>$nbContact,
+            ]);
     }
 
     /**

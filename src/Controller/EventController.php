@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Entity\SatisfactionQuizz;
 use App\Form\EventType;
+use App\Repository\ContactRepository;
 use App\Repository\EventRepository;
+use App\Repository\SatisfactionQuizzRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,12 +53,27 @@ class EventController extends AbstractController
     /**
      * @Route("/{id}", name="event_show", methods={"GET"})
      */
-    public function show(Event $event): Response
+    public function show(Event $event, ContactRepository $contactRepository): Response
     {
+        $average=$contactRepository->averageNotation($event->getId ());
+      //  $average=array_sum($notes)/count($notes);
+
+        $sumContact=$contactRepository->SumContactCreation ($event->getId ());
+        $nbAnswer=$contactRepository->nbAnswer ($event->getId ());
+        $countParticipant=$contactRepository->countParticipants ($event->getId ());
+        $participationRate = $nbAnswer['nbAnswer'] / $countParticipant['countParticipant'] * 100;
 
         $contacts = $this->getDoctrine()->getRepository(Contact::class)->findBy(['event'=>$event]);
 
-        return $this->render('event/show.html.twig', ['event' => $event, 'contacts' => $contacts]);
+        return $this->render('event/show.html.twig', [
+            'event' => $event,
+            'contacts' => $contacts,
+            'average'=>$average,
+            'sumContact'=>$sumContact,
+            'nbAnswer' =>$nbAnswer,
+            'participationRate'=>$participationRate,
+
+        ]);
     }
 
     /**
