@@ -18,8 +18,8 @@ class SatisfactionQuizzType extends AbstractType
         $builder
             ->add('businessContact', ChoiceType::class, array(
                 'choices'=> array(
-                    'Yes'=>true,
-                    'No' =>false,
+                    'Oui'=>true,
+                    'Non' =>false,
                 )
             ))
             ->add('satisfactionNote', ChoiceType::class, array(

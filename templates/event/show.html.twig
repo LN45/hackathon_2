@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Event{% endblock %}
+{% block title %}{{ event.name }}{% endblock %}
 
 {% block body %}
     <div class="container">
@@ -75,7 +75,7 @@
                 <a class="btn btn-primary ml-5" href="{{ path('event_edit', {'id': event.id}) }}">Modifier l'évènement</a>
             </div>
             <div class="col-4">
-                <a class="btn btn-primary ml-5" href="{{ path('satisfaction_quizz_new', {'event': event.id}) }}">Créer un Formulaire</a>
+                <a class="btn btn-primary ml" href="{{ path('satisfaction_quizz_new', {'event': event.id}) }}">Accéder et modifier un formulaire</a>
             </div>
             <div class="col-4">
                 {% include "event/_mail.html.twig" %}
