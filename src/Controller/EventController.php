@@ -62,7 +62,7 @@ class EventController extends AbstractController
         $nbAnswer=$contactRepository->nbAnswer ($event->getId ());
         $countParticipant=$contactRepository->countParticipants ($event->getId ());
         if( $countParticipant['countParticipant'] != 0 ) {
-            $participationRate = $nbAnswer['nbAnswer'] / $countParticipant['countParticipant'] * 100;
+            $participationRate = $nbAnswer['nbAnswer'] / (int)$countParticipant['countParticipant'] * 100;
         } else {
             $participationRate = 0;
         }
