@@ -6,20 +6,18 @@
     <div class="container">
         <div class="row">
             <a href="{{ path('contact_index') }}"><i class="fas fa-chevron-circle-left fa-3x"></i></a>
-            <h1 class="text-center title_detail_event">Détail du contact</h1>
         </div>
->
-    <div>
-        J'ai participé à {{ nbEvent.nbEvent }} événements.
-    </div>
-    <div>
-        J'ai rencontré  {{ nbNewContact.nbNewContact }} nouveaux contacts.
-    </div>
-
-    <a href="{{ path('contact_index') }}">back to list</a>
-
-    <a href="{{ path('contact_edit', {'id': contact.id}) }}">edit</a>
-
+        <h1 class="text-center title_detail_event">Statistiques de {{ contact.firstName }} {{ contact.lastName }}</h1>
+            <tbody>
+            <table class="table">
+            <th>
+                J'ai participé à {{ nbEvent.nbEvent }} événements
+            </th>
+            <th>
+                J'ai rencontré  {{ nbNewContact.nbNewContact }} nouveaux contacts.
+            </th>
+        </table>
+        <h1 class="text-center title_detail_event">Détail de {{ contact.firstName}} {{ contact.lastName }}</h1>
         <div class="row mt-5">
             <table class="table">
                 <tbody>
