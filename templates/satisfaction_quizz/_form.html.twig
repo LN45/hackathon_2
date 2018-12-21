@@ -1,39 +1,41 @@
 {{ form_start(form) }}
-
-<div class="row">
-    <label for="{{ form.businessContact.vars.id }}">L'évènement <span class="title_gras">{{ event.name }}</span> vous a-t-il permis d'élargir votre réseau ? </label>
-    {{ form_widget(form.businessContact) }}
-    {{ form_errors(form.businessContact) }}
-</div>
-
-<div class="row mt-4">
-    <label for="{{ form.contactNumber.vars.id }}">Si oui, Combien de contacts avez-vous générés ?</label>
-    {{ form_widget(form.contactNumber) }}
-    {{ form_errors(form.contactNumber) }}
-</div>
-
-<div class="row no-gutters mt-4">
-    <div class="col-12"><label for="{{ form.satisfactionNote.vars.id }}">Quelle est votre taux de satisfaction vis à vis de {{ event.name }} ?</label></div><br />
-    <br><div class="col">{{ form_widget(form.satisfactionNote) }}</div>
-    {{ form_errors(form.satisfactionNote) }}
-</div>
-
-<div class="fakeformulaire mt-5">
-    <div class="row mt-4">
-        <label for="x">Comment avez-vous connu de cet évènement</label>
-        <input type="radio" id ="x" name="x" value="Presse" checked> Presse<br>
-        <input type="radio" id="x" name="x" value="Télévision"> Télévision<br>
-        <input type="radio" id="x" name="x" value="radio"> Radio<br>
-    </div>
-    <div class="row mt-4">
-        <label for="y">Avez-vous des idées d'amélioration pour les prochains évènements ? </label>
-        <input type="text" id="y" name="y">
+<div class="container">
+    <div class="row">
+        <label for="{{ form.businessContact.vars.id }}">L'évènement <span class="title_gras">{{ event.name }}</span> vous a-t-il permis d'élargir votre réseau ? </label>
+        {{ form_widget(form.businessContact) }}
+        {{ form_errors(form.businessContact) }}
     </div>
 
+    <div class="row mt-4">
+        <label for="{{ form.contactNumber.vars.id }}">Si oui, Combien de contacts avez-vous générés ?</label>
+        {{ form_widget(form.contactNumber) }}
+        {{ form_errors(form.contactNumber) }}
+    </div>
+
+    <div class="row no-gutters mt-4">
+        <div class="col-12"><label for="{{ form.satisfactionNote.vars.id }}">Quelle est votre taux de satisfaction vis à vis de {{ event.name }} ?</label></div><br />
+        <br><div class="col">{{ form_widget(form.satisfactionNote) }}</div>
+        {{ form_errors(form.satisfactionNote) }}
+    </div>
+
+    <div class="fakeformulaire mt-5">
+        <div class="row mt-4">
+            <label for="x">Comment avez-vous connu de cet évènement</label>
+            <input type="radio" id ="x" name="x" value="Presse" checked> Presse<br>
+            <input type="radio" id="x" name="x" value="Télévision"> Télévision<br>
+            <input type="radio" id="x" name="x" value="radio"> Radio<br>
+        </div>
+        <div class="row mt-4">
+            <label for="y">Avez-vous des idées d'amélioration pour les prochains évènements ? </label>
+            <input type="text" id="y" name="y">
+        </div>
+
+
+    </div>
+    <div class="justify-content-center row mb-5">
+        <button class="btn btn-primary">{{ button_label|default('Valider les Réponses') }}</button>
+    </div>
+
 
 </div>
-<div class="justify-content-center row mb-5">
-    <button class="btn btn-primary">{{ button_label|default('Valider les Réponses') }}</button>
-</div>
-
 {{ form_end(form) }}
