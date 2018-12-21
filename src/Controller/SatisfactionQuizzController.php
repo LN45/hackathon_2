@@ -74,7 +74,7 @@ class SatisfactionQuizzController extends AbstractController
     
                 $this->addFlash(
                     'success',
-                    'Formulaire validé !'
+                    'Formulaire validé ! +20 coins'
                 );
                 return $this->redirectToRoute('event_index');
             }
